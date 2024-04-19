@@ -1,0 +1,46 @@
+{% extends "adminbase.html" %}
+{% block content %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 border">
+  
+
+    <form id="costum_home_form" class="scroll_y100 me-4 pb-4" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class=" w-75 d-flex flex-column gap-3 mr-1 mb-3 py-2 rounded px-3 border-bottom"> 
+
+         <h5 class="text-capitalize  text-opacity7 text-decoration-underline fw-bold">Edit Contact</h5>
+
+     
+
+
+        <div class="get-pm-para-div  d-flex flex-column gap-3  w-100">
+
+
+          
+
+          <div class="px-2">
+            <label class="text-capitalize padding_2_left text-kana" for="Phn_no">Principle Name :</label>
+            <input class="panel_input border w-100 mt-2" type="text" name="phn_no" id="phn_no" placeholder="Enter Phone number" value="{{form.phn_no}}"  required>
+           </div>
+          <div class="px-2">
+            <label class="text-capitalize padding_2_left text-kana" for="gmail_api">Gmail_api :</label>
+            <input class="panel_input border w-100 mt-2" type="text" name="gmail_api" id="gmail_api" placeholder="Enter Gmail" value="{{form.gmail_api}}"  required>
+           </div>
+          <div class="px-2">
+            <label class="text-capitalize padding_2_left text-kana" for="gmail_link">Gmail :</label>
+            <input class="panel_input border w-100 mt-2" type="email" name="gmail_link" id="gmail_link" placeholder="Enter Gmail" value="{{form.gmail}}"  required>
+           </div>
+          <div class="px-2">
+            <label class="text-capitalize padding_2_left text-kana" for="location_link">School Google Map Link :</label>
+            <input class="panel_input border w-100 mt-2" type="text" name="location_link" id="location_link" placeholder="Enter Location" value="{{form.location}}"  required>
+           </div>
+        
+          
+           
+
+      <div class="px-2 d-flex justify-content-end">
+        <input id="submit1" class="bg-primary py-1 px-3 text-white normal1-hover-effect rounded border" type="submit" value="Submit">
+       </div>
+    </form>
+</div>
+
+{% endblock %}

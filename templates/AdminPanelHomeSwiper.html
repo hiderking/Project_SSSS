@@ -1,0 +1,72 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+  
+  <main class="container-fluid d-flex  mb-4" id="admin_panel_main">
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 border">
+
+
+  <form id="costum_home_form"  method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class=" w-75 d-flex flex-column gap-3 mr-1 mb-3 py-2 rounded px-3 border-bottom">
+      <h5 class="text-capitalize  text-opacity7 text-decoration-underline fw-bold ">Add Swiper Image</h5>
+
+        <div class="px-2">
+        <label class="padding_2_left text-capitalize" for="edit_swiper_title">Title :</label>
+        <input class="panel_input border w-100 mt-2" type="text" name="edit_swiper_title" id="edit_swiper_title" placeholder="Title" minlength="20" maxlength="55" value="{{form.title}}" required>
+       </div>
+       
+       <div class="px-2">
+        <label class="text-capitalize padding_2_left text-kana" for="edit_swiper_description">Description :</label>
+        <input class="panel_input border w-100 mt-2" type="text" name="edit_swiper_description" id="edit_swiper_description" placeholder="Description"  maxlength="100" value="{{form.desc}}" required>
+       </div>
+    
+     <div class="swiper_flex_div d-flex gap-4">
+      {% if form.img %}
+       <div class="px-2">
+         <label  class="padding_2_left text-kana" for="edit_swiper_image">Select Image : </label>
+         <div id="view_swiper_img_dig" class="d-flex flex-column">
+         <img id="img1" class="" src="{{MEDIA_URL}}{{form.img.url}}" alt=""width="100px">
+        <input onchange="myfunction()" class=" w-100 mt-2 text-pr" type="file" name="edit_swiper_image" id="edit_swiper_image" accept="imgage/*"  >
+      </div>
+      
+       </div>
+       {% else %}
+       <div class="px-2">
+         <label  class="padding_2_left text-kana" for="edit_swiper_image">Select Image : </label>
+         <div id="view_swiper_img_dig" class="d-flex flex-column">
+         <img id="img1" class="" src="{{MEDIA_URL}}{{form.img.url}}" alt=""width="100px">
+        <input onchange="myfunction()" class=" w-100 mt-2 text-pr" type="file" name="edit_swiper_image" id="edit_swiper_image" accept="imgage/*"  >
+      </div>
+      
+       </div>
+
+       {% endif %}
+       <div class="px-2">
+        <label for="edit_swiper_position" class="form-label"> Select Position</label>
+        <select name="edit_swiper_position" id="edit_swiper_position"  class="form-select panel text-primary" required>
+
+          {% if form.position %}
+
+          <option value="{{form.position}}">{{form.position}}</option>
+          {% else %}
+          <option value="">Select Position</option>
+          {% endif %} 
+          {% for x in arr %} 
+          {% if form.position  != x and x not in occupied %}
+          <option class="text-danger" value="{{x}}">{{x}}</option>
+          {% endif %}
+          {% endfor %}   
+        </select>
+      </div>
+    </div>
+
+
+       <div class="px-2 d-flex justify-content-end">
+        <input id="submit1" class="bg-primary py-1 px-3 text-white normal1-hover-effect rounded border" type="submit" value="Add Swiper">
+       </div>
+    </div>
+    
+</form>
+</div>
+{% endblock %}

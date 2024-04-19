@@ -1,0 +1,68 @@
+{% extends "adminbase.html" %}
+{% block content %}
+{% load static %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 ">
+  <div class="title-div d-flex justify-content-between py-3 mx-4">
+    <h5 class="card-title text-capitalize fw-bold ">Gallery View</h5>
+    <div class="update_icon d-flex gap-4">
+      
+      <a class="update btn btn-primary  text-white" href="/AdminPanelGalleryAdd/"> Add New</a>
+    </div>
+  </div>
+    <div class="select_table border scroll_y100">
+    
+        <table id="gallery_table" class="table">
+            <thead>
+              <tr class="tr">
+                <th class="text-capitalize text-center col-1" scope="col-1">id</th>
+                <th class="text-capitalize text-center col-5" scope="col-5">Title</th>
+                <th class="text-capitalize text-center col-2" scope="col-2">image</th>
+                <th class="text-capitalize text-center col-2" scope="col-2">upload Date</th>
+                {% if category == "admin" %}
+                <th class="text-capitalize text-center col-1" scope="col-1">upload by</th>
+                {% endif %}
+                <th class="text-capitalize text-center col-2" scope="col-2">Edit</th>
+                
+                
+              </tr>
+            </thead>
+
+            <tbody id="tbody">
+              {% for data in form %}
+              <tr class="tr">
+
+                <td class="  col-1" scope="col ">
+                  <input type="text"  id="gallery_img_id"  class="gallery_img_id text-center" name="gallery_img_id" value="#{{data.id}}" readonly>
+                </td>
+                <td class="col " scope="col-5">
+                  <input type="text" name="gallery_img_title " id="gallery_img_title " class="gallery_img_title text-center fw-bold" value="{{data.title}}" readonly required></td>
+
+                <td class=" col" scope="col-2">
+
+                  <a class="gallery_img_a m-auto d-flex" href="{{MEDIA_URL}}{{data.img.url}}">
+                    <img class="gallery_img m-auto" src="{{MEDIA_URL}}{{data.img.url}}" alt="image" width="100px" height="70px">
+                  </a>
+                  </td>
+                <td class="  text-center col-2" scope="col ">
+                  <p class="gallery_image_upload_date">{{data.updateDate.date}}</p></td>
+                  {% if category == "admin" %}
+                  <td class="text-capitalize text-center col-1" scope="col-1">upload by</td>
+                  {% endif %}
+
+                <td class="table_form_td text-capitalize col-1 " scope="col-1">
+
+                  <a href="{% url 'AdminPanelGalleryEdit' data.id %}" id="edit_btn" class=" edit_btn btn btn-white text-primary" type="" ><i class="normal1-hover-effect fs-4 bi bi-pencil-square"></i></a>
+
+                  <a href="{% url 'deletegallery' data.id %}" id="delete_btn" type="a" class=" delete_btn btn text-primary btn-white "><span class="bi  bi-x  fs-4 fw-bold normal1-hover-effect"></span></a>
+
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            
+          </table>
+
+    </div>
+
+</div>
+{% endblock %}

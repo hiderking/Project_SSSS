@@ -1,0 +1,65 @@
+{% extends "adminbase.html" %}
+{% block content %}
+{% load static %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 ">
+
+  <h5 class="text-center fw-bold py-3">News View</h5>
+    <div class="select_table border scroll_y100">
+    
+        <table id="gallery_table" class="table ">
+            <thead>
+              <tr class="tr">
+                <th class="text-capitalize text-center col-1" >SN</th>
+                <th class="text-capitalize text-center col-2" >Experiences Year</th>
+                <th class="text-capitalize text-center col-2" >Number. teachers</th>
+                <th class="text-capitalize text-center col-2" >Bright stdents</th>
+                <th class="text-capitalize text-center col-2" >Glorious Alumini</th>
+                <th class="text-capitalize text-center col-1" >Upload Date</th>
+                {%  if category == "admin" %}
+                <th class="text-capitalize text-center col-1" >Uploadby</th>
+                {% endif %}
+                <th class="text-capitalize text-center col-1" >Edit</th>
+              </tr>
+            </thead>
+
+            <tbody id="tbody">
+              {% for data in form  %}
+              <tr class="tr">
+                <td class=" col-1 text-center" >
+                  #000{{data.id}}
+                </td>
+
+                <td class="  text-center col-2" >
+                 {{data.year_of_experiences}} </td>
+                <td class="  text-center col-2" >
+                 {{data.teacher_no}}</td>
+                <td class="  text-center col-2" >{{data.bright_students}}
+                  </td>
+                <td class="  text-center col-2" >
+                  {{data.glorious_alumini}}
+                 </td>
+                <td class="  text-center col-1" >
+                  {{data.updateDate.date}}
+                 </td>
+                 {%  if category == "admin" %}
+                 <td class="text-capitalize text-center col-1" >{{data.uploadby}}</td>
+                 {% endif %}
+
+                <td class="table_form_td text-capitalize justify-content-between d-flex gap-1 col-1" >
+                  <a href="{% url 'AdminPanelAchievementEdit' data.id %}" id="edit_btn" class=" edit_btn btn btn-white text-primary" type="" ><i class="normal1-hover-effect fs-4 bi bi-pencil-square"></i></a>
+              
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            
+          </table>
+          <div class="w-100 d-flex flex-row justify-content-end ">
+
+            <a href="/AdminPanelAchievementAdd/" id="add_new"  class="  btn bg-primary text-white normal1-hover-effect d-flex justify-content-center align-items-center  me-4 mb-4" >Add New</a>
+          </div>
+
+    </div>
+
+</div>
+{% endblock %}

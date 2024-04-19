@@ -1,0 +1,77 @@
+{% extends "adminbase.html" %}
+{% block content %}
+
+<div id="costum_home_div"  class="d-flex m-auto flex-column w-75 mx-auto mt-3 ">
+
+
+  <section class="section ">
+    <div class="row">
+
+        <div class="card">
+          <div class="card-body pt-3">
+            <!-- Bordered Tabs -->
+            <ul class="nav nav-tabs nav-tabs-bordered">
+
+        
+              <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#introduction_overview">Introduction</button>
+              </li>
+
+
+            </ul>
+            <div class="tab-content pt-2">
+              <div class="tab-pane fade show active introduction_overview " id="introduction_overview">
+                <div class="profile_details_div d-flex flex flex-column gap-4">
+                 
+                <div class="title-div d-flex justify-content-between">
+                  <h5 class="card-title text-capitalize">Introduction</h5>
+                  <div class="update_icon d-flex gap-4">
+                    
+                  
+                    
+                    <a class="update btn btn-primary  text-white" href="/AdminPanelIntroductionAdd/"> Add New</a>
+                  </div>
+                </div>
+                 {% for data in Intro %}
+                <div class="data-container w-100 scroll_y100">
+                 <div class="row ">
+                   <div class="col-lg-3 col-md-4 label text-capitalize ">First Paragraph :</div>
+                   <div class="col-lg-9 col-md-8">{{data.firstpara}}</div>
+                 </div>
+                 <div class="row ">
+                   <div class="col-lg-3 col-md-4 label text-capitalize ">Second Paragraph :</div>
+                   <div class="col-lg-9 col-md-8">{{data.secondpara}}</div>
+                 </div>
+                 <div class="row ">
+                   <div class="col-lg-3 col-md-4 label text-capitalize ">third Paragraph :</div>
+                   <div class="col-lg-9 col-md-8">{{data.thirdpara}}</div>
+                 </div>
+                 {% if category == "admin" %}
+                 <div class="row ">
+                   <div class="col-lg-3 col-md-4 label text-capitalize ">uploadby :</div>
+                   <div class="col-lg-9 col-md-8">{{data.uploadby}}</div>
+                 </div>
+                 {% endif %}
+                 <div class="update_icon d-flex gap-4">
+                  
+                  <a class="update btn btn-primary text-white" href="{% url 'AdminPanelIntroductionEdit' data.id %}"> Update</a>
+                </div>
+                </div>
+                 {% endfor %}
+               </div>
+             
+             </div>   
+
+
+            </div><!-- End Bordered Tabs -->
+
+          </div>
+        </div>
+
+      
+    </div>
+  </section>
+
+
+</div>
+{% endblock %}

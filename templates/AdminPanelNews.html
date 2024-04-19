@@ -1,0 +1,37 @@
+{% extends "adminbase.html" %}
+{% block content %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 border" >
+  
+
+    <form id="costum_home_form" class="scroll_y100 me-4 pb-4" method="POST" enctype="multipart/form-form">
+      {% csrf_token %}
+      <div class=" w-75 d-flex flex-column gap-3 mr-1 mb-3 py-2 rounded px-3 border-bottom"> 
+
+         <h5 class="text-capitalize  text-opacity7 text-decoration-underline fw-bold">Share important news</h5>
+
+     
+
+
+        <div class="get-pm-para-div  d-flex flex-column gap-3  w-100">
+
+          <div class="px-2">
+            <label class="text-capitalize padding_2_left text-kana" for="samachar_title">Title :</label>
+            <input class="panel_input border w-100 mt-2" type="text" name="samachar_title" id="samachar_title" placeholder="Title" value="{{form.title}}"  required>
+           </div>
+
+          <div class="px-2">
+            <label class="text-capitalize padding_2_left text-kana" for="samachar_url">URL :</label>
+            <input class="panel_input border w-100 mt-2" type="text" name="samachar_url" id="samachar_url" placeholder="url" value="{{form.link}}"  required>
+           </div>
+
+        </div>
+        
+      </div>
+      <div class="px-2 d-flex justify-content-end">
+        <input id="submit1" class="bg-primary py-1 px-3 text-white normal1-hover-effect rounded border" type="submit" value="Submit">
+       </div>
+ 
+    </form>
+</div>
+
+{% endblock %}

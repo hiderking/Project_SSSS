@@ -1,0 +1,40 @@
+{% extends "adminbase.html" %}
+{% block content %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mt-3 mx-3 border">
+
+  <form id="costum_gallery_form" method="post" class="scroll_y100 me-4 pb-4" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class=" w-75 d-flex flex-column gap-3 mr-1 mb-5 py-2 rounded px-3 border-bottom">
+       
+      
+        <h5 class="text-capitalize  text-opacity7 text-decoration-underline fw-bold ">Gallery Image Add</h5>
+
+
+        <div class="px-2">
+        <label class="padding_2_left text-capitalize" for="gallery_img_title">Title :</label>
+        <input class="panel_input border w-100 mt-2" type="text" name="gallery_img_title" id="gallery_img_title" placeholder="Title" value="{{form.title}}" required>
+       </div>
+       <div class="px-2">
+        <label  class="padding_2_left text-kana" for="gallery_img">Select Image : </label>
+        <div id="view_gallery_img" class="d-flex flex-column">
+        <img id="img1" class="imigi" src="{{MEDIA_URL}}{{ form.img.url}}" alt="" width="100px">
+       <input  class="accept_files w-100 mt-2 text-pr" type="file" name="gallery_img" id="gallery_img" accept="image/*"  required >
+     </div>
+     
+      </div>
+   
+
+   
+   
+   
+    <div class="px-2 d-flex justify-content-end">
+      <input id="submit2" class="bg-primary py-1 px-3 text-white normal1-hover-effect rounded border" type="submit" value="submit">
+     </div>
+     </div>
+
+    
+   
+    
+</form>
+</div>
+{% endblock %}

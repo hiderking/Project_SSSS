@@ -1,0 +1,122 @@
+{% load static %}
+    <!-- footer start  -->
+    <footer id="footer" class="footer bg-primary rounded ">
+
+        <div class="upper_footer row rounded justify-content-between   px-3 py-5 gy-4">
+          <div class="col-md-2 col-6 px-1 d-flex flex-column">
+            <a
+              class="h4  fw-bold text-capitalize text-decoration-none normal1-hover-effect text-white nav-hover-effect">About</a>
+            <div class="sub_nav px-1 d-flex flex-column">
+              <a href="/AboutVisionMission/"
+                class="text-capitalize text-decoration-none normal1-hover-effect text-white">Vision and mission</a>
+              <a href="/AboutPrincipleMessage/"
+                class="text-capitalize text-decoration-none normal1-hover-effect text-white">principle</a>
+              <a href="/AboutHistory/"
+                class="text-capitalize text-decoration-none normal1-hover-effect text-white">history</a>
+              <a href="/programs/"
+                class="text-capitalize text-decoration-none normal1-hover-effect text-white">programs</a>
+            </div>
+  
+          </div>
+  
+          <div class="col-md-2 col-6 px-1 d-flex flex-column">
+            <a class="h4  fw-bold text-capitalize text-decoration-none normal1-hover-effect text-white nav-hover-effect">Important
+              links</a>
+            <div class="sub_nav px-1 d-flex flex-column">
+              <a href="https://www.neb.gov.np/notices"
+                class="text-uppercase text-decoration-none normal1-hover-effect text-white">NEB</a>
+              <a href="/notices/"
+                class="text-capitalize text-decoration-none normal1-hover-effect text-white">Notice</a>
+  
+            </div>
+          </div>
+          <div class="col-md-2   col-6 px-1 d-flex flex-column">
+            <a
+              class="h4  fw-bold text-capitalize text-decoration-none normal1-hover-effect text-white nav-hover-effect">Download</a>
+            <div class="sub_nav px-1 d-flex flex-column">
+              <a href="/more/"
+                class="text-capitalize text-decoration-none normal1-hover-effect text-white">Document</a>
+              
+            </div>
+          </div>
+  
+          <div class="col-md-3    col-6 px-1 d-flex flex-column">
+            <a href="#"
+              class="h4  fw-bold text-capitalize text-decoration-none normal1-hover-effect text-white nav-hover-effect normal1-hover-effect text-white">get
+              in touch</a>
+            <div class="sub_nav px-1 d-flex flex-column">
+              <h6 class="mt-1 text-justify text-capitalize text-opacity7 text-white">shree sarbajanik secondary school
+              </h6>
+              <p class="address text-capitalize text-opacity7 text-white">Chhatradev-5 , Arghakhanchi , Nepal</p>
+              <p class=" text-opacity7 text-white">G.P.O. BOX: <br>10210, Kathmandu, Nepal</p>
+              {% for data in contact %}
+              <p class=" text-opacity7 text-white">Phone: <br><i class="bi bi-telephone-fill padding_2"></i>:+977-{{data.phn_no}}
+              </p>
+              <p class=" text-opacity7 text-white">Gmail: <br>{{data.gmail}}</p>
+              {% endfor %}
+              <div id="footer_icons" class="d-flex gap-3">
+                <i class="bi bi-envelope text-white normal1-hover-effect fs-3"></i>
+                <i class="bi bi-facebook text-white normal1-hover-effect fs-3"></i>
+  
+                <i class="bi bi-linkedin text-white normal1-hover-effect fs-3"></i>
+                <i class="bi bi-twitter-x text-white normal1-hover-effect fs-3"></i>
+  
+  
+              </div>
+  
+  
+  
+  
+            </div>
+          </div>
+        </div>
+        <div class="lower_footer mt-4 border-top p-4 mx-">
+          <!-- <p class="normal1-hover-effect text-capitalize text-center text-white">copyright &copy; 2023,Shree sarbajanik secondary school .all right reserved</p> -->
+          <div id="bad_team" class="normal1-hover-effect d-flex justify-content-center gap-1">
+            <p class=" text-capitalize text-center text-white">&copy; 2023,</p>
+            <a href="https://www.facebook.com/" target="_blank"
+              class="text-decoration-none text-uppercase text-center text-white"> bad team</a>
+          </div>
+  
+        </div>
+      </footer>
+      <!-- end footer -->
+  
+    </div>
+  
+  
+  
+  
+  
+  
+    
+    <!-- gsap  -->
+    <script src="{% static 'assets/js/gsap.js'%}"></script>
+    <!-- Swiper JS -->
+    <script src="{% static 'assets/js/swiper.js'%}"></script>
+    <!-- bootstrap js  -->
+    <script src="{% static 'assets/bootstrap/js/bootstrap.bundle.js'%}"></script>
+    <!-- jquerry  -->
+    <script src="{% static 'assets/js/jquery.js'%}"></script>
+    <!-- TweenMax js -->
+    <script src="{% static 'assets/js/tweenmax.js'%}"></script>
+    <!-- script js  -->
+    <script src="{% static 'assets/js/script.js'%}"></script>
+    <!-- animation js -->
+    <script src="{% static 'assets/js/animation.js'%}"></script>
+  
+<!-- JavaScript -->
+<script src="{% static 'assets/js/alertify.js'%}"></script>
+<script>
+    {% for msg in messages %}
+ clearTimeout(window.timeout);
+  alertify.set('notifier','position', 'top-right');
+  alertify.success('{{msg}}');
+  window.timeout = setTimeout(function(){
+   alertify.dismissAll();
+ },2500);
+ {% endfor %}
+</script>
+  </body>
+  
+  </html>

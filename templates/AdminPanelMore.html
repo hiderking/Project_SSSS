@@ -1,0 +1,35 @@
+{% extends "adminbase.html" %}
+{% block content %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 border">
+
+    
+  <form id="costum_home_form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class=" w-75 d-flex flex-column gap-3 mr-1 mb-3 py-2 rounded px-3 border-bottom">
+        <h5 class="text-capitalize  text-opacity7 text-decoration-underline fw-bold ">Add files</h5>
+
+
+        <div class="px-2">
+        <label class="padding_2_left text-capitalize" for="file_title">Title :</label>
+        <input class="panel_input border w-100 mt-2" type="text" name="file_title" id="file_title" placeholder="Title" value="{{form.title}}" required>
+       </div>
+       
+      
+
+       <div class="px-2">
+        <label class="padding_2_left text-kana" for="filename">Select files : </label>
+        <input class=" w-100 mt-2" type="file" name="filename" id="filename" value="{{form.file}}"  required >
+       </div>
+
+       <div class="px-2 d-flex justify-content-end">
+        <input class="bg-primary py-1 px-3 text-white normal1-hover-effect rounded border" type="submit" value="Apply">
+       </div>
+    </div>
+     
+
+    
+   
+    
+</form>
+</div>
+{% endblock %}

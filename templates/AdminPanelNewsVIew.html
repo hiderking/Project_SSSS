@@ -1,0 +1,68 @@
+{% extends "adminbase.html" %}
+{% block content %}
+{% load static %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 ">
+
+  <div class="title-div d-flex justify-content-between py-3 mx-4">
+    <h5 class="card-title text-capitalize fw-bold ">News View</h5>
+    <div class="update_icon d-flex gap-4">
+      
+      <a class="update btn btn-primary  text-white" href="/AdminPanelNewsAdd/"> Add New</a>
+    </div>
+  </div>
+    <div class="select_table border scroll_y100">
+    
+        <table id="gallery_table" class="table">
+            <thead>
+              <tr class="tr">
+                <th class="text-capitalize text-center col-1" >id</th>
+                <th class="text-capitalize text-center col-3" >Title</th>
+                <th class="text-capitalize text-center col-2" >View link</th>
+                <th class="text-capitalize text-center col-2" >upload date</th>
+                {% if category == "admin" %}
+                <th class="text-capitalize text-center col-2" >uploadby</th>
+                {% endif %}
+                <th class="text-capitalize text-center col-1" >Edit</th>
+                
+                
+              </tr>
+            </thead>
+
+            <tbody id="tbody">
+              {% for data in form %}
+              <tr class="tr">
+
+                <td class=" col-1" >
+                  <input type="text"  id="samachar_id"  class="samachar_id text-center" name="samachar_id" value="#{{data.id}}" readonly>
+                </td>
+                <td class="text-center  col-3" >
+                  <input type="text" name="news_title " id="news_title " class="news_title text-center fw-bold" value="{{data.title}}" readonly required></td>
+
+                <td class="  text-center col-2" >
+
+                  <a class="news_a" href="{{data.link}}">{{data.link}}
+                  </a>
+                  </td>
+                <td class="  text-center col-2" >
+                  <p class="gallery_image_upload_date">{{data.updateDate.date}}</p></td>
+
+                  {% if category == "admin" %}
+                  <th class="text-capitalize text-center col-1" scope="col ">{{data.uploadby}}</th>
+                  {% endif %}
+                <td class="table_form_td text-capitalize justify-content-between d-flex gap-1 col-1" >
+
+                  <a href="{% url 'AdminPanelNewsEdit' data.id %}" id="edit_btn" class=" edit_btn btn btn-white text-primary" type="" ><i class="normal1-hover-effect fs-4 bi bi-pencil-square"></i></a>
+
+                  <a href="{% url 'deletenews' data.id %}" id="delete_btn" type="a" class=" delete_btn btn text-primary btn-white "><span class="bi  bi-x  fs-4 fw-bold normal1-hover-effect"></span></a>
+
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            
+          </table>
+
+    </div>
+
+</div>
+{% endblock %}

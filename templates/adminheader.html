@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Sarbajanik Secondary School</title>
+<!-- favicon  -->
+<link rel="shortcut icon" href="{% static 'assets/img/pngtree-school-logo-png-image_3977360.png'%}" type="image/x-icon">
+
+
+
+
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/swiper.css' %}">
+<!-- bootstrap css  -->
+<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+<!-- bootstrap icons  -->
+<link rel="stylesheet" href="{% static 'assets/css/bootstrap-icons.css'%}">
+<!-- loco css -->
+<link rel="stylesheet" href="{% static 'assets/css/loco.css'%}">
+<!-- style css  -->
+<link rel="stylesheet" href="{% static 'assets/css/style.css'%}">
+<!-- utensils css  -->
+<link rel="stylesheet" href="{% static 'assets/css/utensils.css'%}">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/alertify.css'%}"/>
+  <!-- Default theme -->
+  <link rel="stylesheet" href="{% static 'assets/css/defaultalertify.css'%}"/>
+
+</head>
+<body >
+
+<div id="main">
+
+  
+
+<!-- header start  -->
+
+
+<header id="header">
+  <nav id="navbar1" class=" bg_wheat navbar navbar-expand-lg">
+  <div class="container-fluid d-flex flex-column flex-sm-row  justify-content-between">
+      <div id="logo_div" class="d-flex  flex-column flex-sm-row  pr-md-3 px-md-0  align-items-center">
+        <a class="navbar-brand" href="/"><img id="logo" src="{% static 'assets/img/pngtree-school-logo-png-image_3977360.png' %}" alt="logo"></a>
+        <div id="school_name">
+         <p id="name" class=" fs-5 normal1-hover-effect  text-capitalize text-dark lh-1">shree sarbajanik secondary school</p> 
+         <p id="address" class="normal1-hover-effect  text-capitalize text-dark">Chhatradev-5 , Arghakhanchi , Nepal</p>
+        </div>
+  
+  
+      </div>
+  
+    <div class="collapse navbar-collapse d-none d-lg-block me-3" id="navbarSupportedContent">
+  
+      <ul id="first_nav_first_ul" class="navbar-nav  ">
+  
+        <ul class=" d-flex align-items-center  gap-4" style="list-style: none !important;">
+          <li class="d-none position-relative nav-item dropdown">
+  
+            <a class="nav-link nav-icon " href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-bell fs-4"></i>
+              <span  class=" badge bg-primary badge-number position-absolute right_0 left-0 top-0">4</span>
+            </a><!-- End Notification Icon -->
+  
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications list_none p-3 right_100">
+              <li class="dropdown-header p-0 mb-1">
+                You have 4 new notifications
+                <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+              </li>
+  
+              <li class="notification-item border-bottom border-top">
+                <div>
+                  <div class="header_notification_div d-flex gap-1 flex-column">
+                      <i class="info_icon bi bi-info-circle text-primary"></i>
+                  <h4 class="notification_heading fs-6 fw-bold">Dicta reprehenderit</h4></div>
+                  <div class="footer_notifications_div d-flex flex-column line_height_3px mt-2">
+                  <p  class="notificaton_description font_13px">Quae dolorem earum veritatis oditseno</p>
+                  <p class="notification_timing font_13px fw-bold text-secondary ml-2 text-end">4 hrs. ago</p></div>
+                </div>
+              </li>
+              <li class="dropdown-footer">
+                <a class="text-decoration-none" href="">Show all notifications</a>
+              </li>
+  
+            </ul><!-- End Notification Dropdown Items -->
+  
+          </li><!-- End Notification Nav -->
+  
+  
+          <li class="nav-item dropdown pe-3">
+  
+            <a class="nav-link nav-profile d-flex align-items-center pe-0 flex-row-reverse" href="#" data-bs-toggle="dropdown">
+              <img class="user_icon_image rounded-circle" src="{% static 'assets/img/pngtree-school-logo-png-image_3977360.png' %}" alt="Profile" class="rounded-circle" >
+              <span class="d-none d-md-block dropdown-toggle ps-2 text-capitalize">{{updater}}</span>
+            </a><!-- End Profile Iamge Icon -->
+  
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+              <li class="dropdown-header">
+                <h6 class="text-capitalize">{{category}}</h6>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="/AdminProfile/">
+                  <i class="bi bi-person"></i>
+                  <span>My Profile</span>
+                </a>
+              </li>
+             
+            
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'logout' %}">
+                  <i class="bi bi-box-arrow-right"></i>
+                  <span>Sign Out</span>
+                </a>
+              </li>
+  
+            </ul><!-- End Profile Dropdown Items -->
+          </li><!-- End Profile Nav -->
+  
+        </ul>
+  
+      </ul>
+    </div>
+  </div>
+  </nav>
+  
+  </header>
+  <!-- end header  -->
+  
+  
+  <main class="container-fluid d-flex  mb-4" id="admin_panel_main">
+  
+    <div id="header_admin_panel" class=" d-flex flex-column  p-4 py-2  gap-2  bg-primary  rounded">
+        <div class="panel_header_div my-3"><a class="panel_header text-decoration-none normal1-hover-effect   text-capitalize text-white" aria-current="page" href="/AdminPanelHome/">Dashboard</a></div>
+      
+
+    <div class="panel_header_div my-3">
+      <a class="panel_header text-decoration-none normal1-hover-effect   text-capitalize text-white  dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Home
+      </a>
+        <div class="dropdown-menu">
+        <a href="/AdminPanelHomeSwiperView/"  class="dropdown-item text-capitalize ">Swiper</a>
+        <a href="/AdminPanelAchievementView/"  class="dropdown-item text-capitalize">School achievement</a>
+        
+        </div>
+    </div>
+    
+
+    
+       
+    <div class="panel_header_div my-3">
+      <a class="panel_header text-decoration-none normal1-hover-effect   text-capitalize text-white  dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        About
+      </a>
+         <div class="dropdown-menu">
+        <a href="/AdminPanelAboutView/"  class="dropdown-item text-capitalize ">about</a>
+        <a href="/AdminPanelIntroductionView/"  class="dropdown-item text-capitalize">Introduction</a>
+        
+         </div>
+    </div>
+    
+    
+    <div class="panel_header_div my-3">
+      <a class="panel_header text-decoration-none normal1-hover-effect   text-capitalize text-white  dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Notice
+      </a>
+        <div class="dropdown-menu">
+        <a href="/AdminPanelNoticeAdd/"  class="dropdown-item text-capitalize ">Add notice</a>
+        <a href="/AdminPanelNoticeView/"  class="dropdown-item text-capitalize">View notices</a>
+        
+        </div>
+    </div>
+    <div class="panel_header_div my-3">
+      <a class="panel_header text-decoration-none normal1-hover-effect   text-capitalize text-white  dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        News
+      </a>
+        <div class="dropdown-menu">
+        <a href="/AdminPanelNewsAdd/"  class="dropdown-item text-capitalize ">Add news</a>
+        <a href="/AdminPanelNewsView/"  class="dropdown-item text-capitalize">View news</a>
+        
+        </div>
+    </div>
+
+      <div class="panel_header_div my-3">
+      <a class="panel_header text-decoration-none normal1-hover-effect   text-capitalize text-white  dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Gallery
+      </a>
+         <div class="dropdown-menu">
+        <a href="/AdminPanelGalleryAdd/"  class="dropdown-item text-capitalize ">Add gallery image</a>
+        <a href="/AdminPanelGalleryView/"  class="dropdown-item text-capitalize">View gallery image</a>
+        
+         </div>
+    </div>
+            
+    <div class="panel_header_div my-3">
+      <a class="panel_header text-decoration-none normal1-hover-effect   text-capitalize text-white  dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        More
+      </a>
+         <div class="dropdown-menu">
+        <a href="/AdminPanelMoreAdd/"  class="dropdown-item text-capitalize ">Add Document</a>
+        <a href="/AdminPanelMoreView/"  class="dropdown-item text-capitalize">View Document</a>
+        
+         </div>
+    </div>
+    <!-- <div class="panel_header_div my-3"><a class="panel_header text-decoration-none normal1-hover-effect   text-capitalize text-white" aria-current="page" href="/AdminPanelAdmission/">admission</a></div> -->
+    
+    <div class="panel_header_div my-3">
+      <a class="panel_header text-decoration-none normal1-hover-effect   text-capitalize text-white  dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Contact
+      </a>
+         <div class="dropdown-menu">
+        <a href="/AdminPanelContactLinkView/"  class="dropdown-item text-capitalize ">contact/Link</a>
+        <a href="/AdminPanelContactsView/"  class="dropdown-item text-capitalize">Contacts Form</a>
+        
+         </div>
+    </div>
+    </div>

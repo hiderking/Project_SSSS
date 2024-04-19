@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<main class="container-fluid" id="notice_open_main">
+  <div id="recent_notices_board" class="mt-1">
+       
+    <a id="notices_board" class="heading_buttons_a h4 rounded bg-primary text-decoration-none fw-bold d-flex align-items-center text-capitalize" href="notices.html">notices board</a>
+  </div>
+  <!-- notice main notice start  -->
+  <div id="notice_open_main_notice" class="mt-5  d-flex justify-content-center align-items-center flex-column ">
+  <a  href="#"  class=" notice_open_main_heading h3 blue-hover normal1-hover-effect text-center fw-bold">{{form.title}}</a>
+  <p class="notice_open_main_date fs-0 normal1-hover-effect" >{{form.updateDate}}</p>
+  <p class="notice_open_main_para text-align-justify ">
+    {{form.description}}
+  </p>
+  <div class="notice_open_main_img_div  rounded mb-5">
+    <div class="download_icons_div position-absolute normal1-hover-effect bg-primary text-white rounded">
+
+
+      <a class="text-decoration-none text-white" href="{{ form.file1.url}}" target="_blank" download>
+
+        <i class="bi-bold bi-download "></i>
+
+      </a>
+
+    </div>
+    <img  src="{{ MEDIA_URL }}{{ form.file1.url }}" alt="notices pu">
+
+    <div class="extra_files d-flex gap-4 mt-3">
+      {% if form.file2 != null %}
+      <a class="d-flex justify-content-center flex-column gap-1" href="{{form.file2}}" download>
+        <i class="bi bi-file-earmark-arrow-down text-danger text-center fs-1"></i>
+        <p class="fs-6">{{form.title2}}</p>
+      </a>
+      {% endif %}
+      {% if form.file3 != null %}
+      <a  class="d-flex justify-content-center flex-column gap-1" href="{{form.file3}}">
+        <i class="bi bi-file-earmark-arrow-down text-center fs-1 text-danger" donwload>
+
+        </i>
+        <p class="fs-6">{{form.title3}}</p>
+      </a>
+      {% endif %}
+     
+    </div>
+  </div>
+ <!-- notice main notice end  -->
+ 
+</div>
+<!-- notice main end  -->
+</main>
+  {% endblock %}

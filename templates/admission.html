@@ -1,0 +1,265 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<main id="admission-main" class="container-fluid">
+
+  <div id="admission-form-main" class=" p-3 py-sm-4  m-auto my-0 my-sm-3 border rounded">
+ 
+ 
+ 
+
+  <div id="form-title" class="">
+      <div class="form-logo d-flex gap-4">
+      <img src="{% static 'assets/img/pngtree-school-logo-png-image_3977360.png' %}" alt="logo">
+      <div class="school-name-address">
+    <h2 class="Name-school text-capitalize text-center fw-bold">Shree sarbajanik secondary school</h2>
+
+    <p class="Address-school text-capitalize text-center">Chhatradev-5 , Arghakhanchi , Nepal</p>
+   </div>
+
+   <img class="imigi" id="img_student" src="" alt="photo" width="200px">
+
+
+  </div>
+   
+    <h4 class="Address-school text-capitalize fw-bold">Admission form</h4>
+    <p class="Address-school text-capitalize text-decoration-underline fw-bold">class 12</p>
+    
+  </div>
+
+
+<!-- first-form start  -->
+
+<div id="first_form" class="admission-form-div">
+  
+  
+  <form id="admission-form"  class=" p-2   m-auto" >
+   
+<div class="text-div my-2 my-sm-4">
+  <label  class="d-flex gap-1" for="student_img"><p class="text-danger">*</p>Select Image : </label>
+  <div id="view_student_img" class="d-flex flex-column">
+ <input  class="accept_files w-100 mt-2 text-pr" type="file" name="student_img" id="student_img"  required >
+</div>
+
+</div>
+
+
+<p class="text-capitalize mt-3 fw-bold">Personal information :</p>
+
+  <div class="name-div d-flex gap-2  flex-column flex-lg-row  justify-content-lg-between">
+
+
+<div class="text-div my-2 my-sm-4 ">
+      <label class="d-flex gap-1" for="fname"> <p class="text-danger">*</p>First-name :</label>
+    <input class="input1 border rounded border-info requied-symbol" type="text" name="fname" id="fname" required>
+</div>
+
+<div class="text-div my-2 my-sm-4 ">
+  <label  class="d-flex gap-1"  for="Mname">
+    <p class="text-white">.</p>
+    Middle-name :</label>
+<input class="input1 border rounded border-info" type="text" name="Mname" id="Mname" >
+</div>
+
+<div class="text-div my-2 my-sm-4 ">
+  <label class="d-flex gap-1" for="Lname"><p class="text-danger">*</p>Third-name : </label>
+<input class="input1 border rounded border-info" type="text" name="Lname" id="Lname" required>
+</div>
+
+</div>
+
+<!-- date of birth -->
+
+
+<div class="text-div my-2 my-sm-4 ">
+  <label  for="dob" class="text-capitalize d-flex gap-1"> <p class="text-danger">*</p>date of birth:</label>
+<input class="input1 border rounded border-info" type="date" name="dob" id="dob" required>
+</div>
+
+
+<!-- gender  -->
+<div class="text-div my-5 d-flex gap-2">
+  <label  for="gender" class="text-capitalize d-flex gap-1"> 
+    <p class="text-danger">*</p>Gender:
+  </label>
+
+  <select class="border rounded border-info bg-white" name="gender" id="gender">
+    <option  class="text-capitalize" value="gender">gender</option>
+    <option  class="text-capitalize" value="male">Male</option>
+    <option  class="text-capitalize" value="female">female</option>
+    <option  class="text-capitalize" value="other">other</option>
+  </select>
+</div>
+
+
+<!-- father name -->
+<div class="text-div my-2 my-sm-4 ">
+  <label  for="father-name" class="text-capitalize d-flex gap-1"> <p class="text-danger">*</p>father name:</label>
+<input class="input2 border rounded border-info" type="text" name="father-name" id="father-name" required>
+</div>
+
+
+
+<!-- mother-name -->
+<div class="text-div my-2 my-sm-4 ">
+  <label  for="mother-name" class="text-capitalize d-flex gap-1"> <p class="text-danger">*</p>mother name:</label>
+<input class="input2 border rounded border-info" type="text" name="mother-name" id="mother-name" required>
+</div>
+
+
+
+<!-- nationality -->
+<p class="text-capitalize mt-3 fw-bold">Nationality :</p>
+
+<div class="nationality-div d-flex gap-2  flex-column flex-lg-row  justify-content-lg-between">
+
+
+  <div class="text-div my-2 my-sm-4 ">
+        <label class="d-flex gap-1" for="nationality"> <p class="text-danger">*</p>Nationality :</label>
+      <input class="input1 border rounded border-info requied-symbol" type="text" name="nationality" id="nationality" required>
+  </div>
+  
+  <div class="text-div my-2 my-sm-4 ">
+    <label  class="d-flex gap-1"  for="citienship-no">
+      <p class="text-danger">*</p>
+      Citizenship No:</label>
+  <input class="input1 border rounded border-info" type="text" name="citienship-no" id="citienship-no" >
+  </div>
+  
+  <div class="text-div my-2 my-sm-4 ">
+    <label class="d-flex gap-1" for="doi"><p class="text-danger text-capitalize">*</p>Date of issue : </label>
+  <input class="input1 border rounded border-info" type="date" name="doi" id="doi" required>
+  </div>
+  
+  </div>
+  
+
+
+<!-- permanent address  -->
+<p class="text-capitalize mt-3 fw-bold">parmanent address :</p>
+<div class="address-div d-flex gap-2 flex-column flex-lg-row  justify-content-lg-between ">
+  <div class="text-div my-2">
+        <label class="d-flex gap-1" for="pmunicipality"> <p class="text-danger">*</p>Municipality /Ghaupalika :</label>
+      <input class="input1 border rounded border-info requied-symbol" type="text" name="pmunicipality" id="pmunicipality" required>
+  </div>
+  
+  <div class="text-div my-2">
+    <label  class="d-flex gap-1"  for="pcity">
+      <p class="text-white">.</p>
+      City :</label>
+  <input class="input1 border rounded border-info" type="text" name="pcity" id="pcity" >
+  </div>
+  
+  <div class="text-div my-2">
+    <label class="d-flex gap-1" for="pprovince"><p class="text-danger">*</p>Province: </label>
+    <select class="border rounded border-info bg-white" name="province" id="province">
+      <option  class="text-capitalize" value="province">Province</option>
+      <option  class="text-capitalize" value="province-1">province-1</option>
+      <option  class="text-capitalize" value="province-3">province-3</option>
+      <option  class="text-capitalize" value="province-4">province-4</option><option  class="text-capitalize" value="province-5">province-5</option>
+      <option  class="text-capitalize" value="province-6">province-6</option>
+      <option  class="text-capitalize" value="province-7">province-7</option>
+    </select>
+  
+
+  </div>
+  
+  </div>
+
+
+ <!-- temporaty address  -->
+  <p class="text-capitalize mt-3 fw-bold">temporary address :</p>
+ 
+<div class="address-div d-flex gap-2 flex-column flex-lg-row  justify-content-lg-between">
+
+  <div class="text-div my-2">
+        <label class="d-flex gap-1" for="pmunicipality"> <p class="text-danger">*</p>Municipality /Ghaupalika :</label>
+      <input class="input1 border rounded border-info requied-symbol" type="text" name="pmunicipality" id="pmunicipality" required>
+  </div>
+  
+  <div class="text-div my-2">
+    <label  class="d-flex gap-1"  for="pcity">
+      <p class="text-white">.</p>
+      City :</label>
+  <input class="input1 border rounded border-info" type="text" name="pcity" id="pcity" >
+  </div>
+  
+  <div class="text-div my-2">
+    <label class="d-flex gap-1" for="pprovince"><p class="text-danger">*</p>Province: </label>
+    <select class="border rounded border-info bg-white" name="province" id="province">
+      
+
+      <option  class="text-capitalize" value="province">province</option>
+      <option  class="text-capitalize" value="province-1">province-1</option>
+      <option  class="text-capitalize" value="province-3">province-3</option>
+      <option  class="text-capitalize" value="province-4">province-4</option><option  class="text-capitalize" value="province-5">province-5</option>
+      <option  class="text-capitalize" value="province-6">province-6</option>
+      <option  class="text-capitalize" value="province-7">province-7</option>
+    </select>
+  
+
+  </div>
+  
+  </div>
+
+  <p class="text-capitalize mt-3 fw-bold">Education :</p>
+
+
+  <div id="see_info" class="d-flex my-2 my-sm-4  d-flex gap-2 flex-column flex-lg-row  justify-content-lg-between">
+  <div class="text-div my-2 my-sm-4 ">
+    <label  for="see-gpa" class="text-capitalize d-flex gap-1"> <p class="text-danger">*</p>SEE g.p.a :</label>
+    <input class="input1 border rounded border-info" type="number" name="see-gpa" id="see-gpa" min="1" max="4" required>
+    </div>
+
+  <div class="text-div my-2 my-sm-4 ">
+    <label  for="see-school" class="text-capitalize d-flex gap-1"> <p class="text-danger">*</p>SEE school :</label>
+    <input class="input1 border rounded border-info" type="text" name="see-school" id="see-school" required>
+    </div>
+  </div>
+
+  <div class="text-div my-2 my-sm-4 ">
+  <label  for="gpa" class="text-capitalize d-flex gap-1"> <p class="text-danger">*</p>class 11 g.p.a :</label>
+<input class="input1 border rounded border-info" type="number" name="gpa" id="gpa" min="1" max="4" required>
+  </div>
+
+
+  <div class="text-div my-2 my-sm-4 ">
+    <label class="d-flex gap-1 text-capitalize" for="img"><p class="text-danger">*</p>class 11 markshheet : </label>
+  <input class="" type="file" id="marksheet" name="marksheet" accept="image/*" required>
+</div>
+
+  <div class="submit-btn d-flex justify-content-end">
+  <input class=" text-capitalize px-3 mt-5 py-2 bg-white  text-dark normal1-hover-effect border rounded  ml-5 position-relative" type="submit" value="Next">
+  </form>
+</div>
+
+<!-- end first-form  -->
+</div>
+
+
+
+<!-- second-form start  -->
+<div id="second-form" class="admission-form-div">
+
+
+<!-- second-form end -->
+
+</div>
+
+
+
+<!-- third-form start  -->
+<div id="third-form start" class="admission-form-div">
+
+<!-- third-form end  -->
+
+</div>
+
+
+
+
+<!-- admission-form end  -->
+
+</main>
+   {% endblock %}

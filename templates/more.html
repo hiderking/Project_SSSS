@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <!-- end header  -->
+  <main class="continer-fluid px-2" id="more_main">
+
+    <div class="more_Document_div mb-3">
+
+      <a class="mt-3 heading_buttons_a heading_buttons h4 rounded bg-primary text-decoration-none fw-bold d-flex align-items-center text-capitalize mb-3"
+      href="more.html">Document </a>
+      <div class="more_Document_2 row mx-2 gap-3 ">
+
+        {% for data in more %}
+        <div
+          class="card_Document col-4 col-sm-3 col-lg-2 col-xlg-1 border rounded p-2 d-flex flex-column gap-4 align-items-center">
+          <a class="blue-hover text-decoration-none" href="{{MEDIA_URL}}{{data.file.url}}">
+          <i class="bi text-danger blue-hover   font_150px font bi-file-earmark-pdf-fill rounded"></i>
+          <div class="title d-flex justify-content-center align-items-center w-75">
+            <p id="card_noe" class="text-capitalize fw-bold fs-6"
+              >{{data.title}}
+          </p>
+          </div>
+        </a>
+        </div>
+        {% endfor %}
+
+
+      </div>
+    </div>
+
+
+  </main>
+ {% endblock %}

@@ -1,0 +1,38 @@
+{% extends "adminbase.html" %}
+{% block content %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 border">
+  
+
+    <form id="costum_home_form" class="" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class=" w-75 d-flex flex-column gap-3 mr-1 mb-3 py-2 rounded px-3 border-bottom"> 
+
+         <h5 class="text-capitalize  text-opacity7 text-decoration-underline fw-bold">Edit Social Links</h5>
+
+     
+
+
+        <div class="get-pm-para-div  d-flex flex-column gap-3  w-100">
+
+          <div class="px-2">
+            <label class="text-capitalize padding_2_left text-kana" for="facebook_link">Facebook Link :</label>
+            <input class="panel_input border w-100 mt-2" type="text" name="facebook_link" id="facebook_link" placeholder="Faceboook Link" value="{{form.facebook}}"  required>
+           </div>
+          <div class="px-2">
+            <label class="text-capitalize padding_2_left text-kana" for="twitter_link">Twitter Link :</label>
+            <input class="panel_input border w-100 mt-2" type="text" name="twitter_link" id="twitter_link" placeholder="Twitter Link" value="{{form.twitter}}"  required>
+           </div>
+          <div class="px-2">
+            <label class="text-capitalize padding_2_left text-kana" for="linkedin_link">Facebook Link :</label>
+            <input class="panel_input border w-100 mt-2" type="text" name="linkedin_link" id="linkedin_link" placeholder="Linkedin Link" value="{{form.linkedin}}"  required>
+           </div>
+        
+          
+
+      <div class="px-2 d-flex justify-content-end">
+        <input id="submit1" class="bg-primary py-1 px-3 text-white normal1-hover-effect rounded border" type="submit" value="Submit">
+       </div>
+    </form>
+</div>
+
+{% endblock %}

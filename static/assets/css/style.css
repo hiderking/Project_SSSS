@@ -1,0 +1,944 @@
+@font-face {
+  font-family: open;
+  src: url("../css/fonts/OpenSans-VariableFont_wdth\,wght.ttf");
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  
+  font-family:open;
+  scroll-behavior: smooth;
+  
+}
+:root{
+  --main-color:blue;
+  --btn-blue-color:rgb(32, 32, 228);
+  --btn-blue-hover-color:rgb(9, 9, 184);
+  --color-white:white;
+  --color-black:black;
+  --scroller-notices-bgcolor:rgba(128, 128, 128, 0.07);
+  --color-border:rgba(255, 255, 255, 0.4);
+  --color-heading-buttons-a:rgba(255, 255, 255, 0.705);
+  --admin-form-bgcolor:#0d6dfdb6;
+  --admin-submit-hover:#054fbe;
+  --contact-form-background-color:rgba(0, 0, 0, 0.199);
+  --form-input:rgba(0, 0, 0, 0.299);
+  --swiper-change-img: rgba(128, 128, 128, 0.425);
+  --admin-main-nav-bg:rgba(245, 222, 179, 0.815);
+  --color-red:red;
+  --text-color:#000000b8;
+
+}
+p{
+  color:var(--text-color)
+}
+*::-moz-selection{
+background-color: var(--color-black);
+color:var(--color-white);
+
+
+}
+*::selection{
+background-color: var(--color-black);
+color:var(--color-white);
+
+}
+
+
+
+
+/* ************ header start ************* */
+#navbar1{
+padding:0.1rem 0 !important 
+}
+
+
+.nav-link i{
+font-size:10px
+}
+
+#first_nav_first_ul{
+  padding-right: 0!important;
+} 
+
+.dropdown-toggle::after{
+  border: 0 !important;
+}
+
+#school_name{
+line-height:0rem
+}
+
+#logo_div a img{
+  width:70px
+}
+#logo_div #school_name #name{
+  font-weight:600
+}
+#logo_div #address{
+font-size:15px 
+}
+
+#navbar2{
+background-color:var(--main-color)
+}
+#navbar2 #navbar2_ul{
+width: 100%;
+padding: 0 1%;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+
+
+#navbarSupportedContent{
+-webkit-box-pack: end;
+    -ms-flex-pack: end;
+        justify-content: flex-end;
+}
+
+/* scroller notices */
+#scroller_notices{
+background: var(--scroller-notices-bgcolor);
+}
+#notices_scroller_heading{
+padding: 5px 10px;
+border-radius: 0 0 8px 0;
+
+}
+
+.tickerwrapper {
+/* the outer div */
+height: 24px;
+position: relative;
+left:0%;
+width: 99.9%;
+overflow: hidden;
+cursor: pointer;
+}
+
+ul.list {
+position: relative;
+display: inline-block;
+list-style: none;
+padding:0;
+margin:0;
+}
+
+ul.list.cloned {
+position: absolute;
+top: 0px;
+left: 0px;
+}
+
+ul.list li {
+float: left;
+padding-left: 20px;
+}
+
+
+/* ************ header end ************* */
+
+
+
+
+/* ************ home page start ************* */
+#home_main{
+width:100%
+}
+
+
+
+/* swiper css  */
+
+
+.swiper {
+width: 95%;
+height: 80vh;
+/* margin-top:50px */
+
+
+}
+
+.swiper-slide {
+text-align: center;
+font-size: 18px;
+background: var(--color-white);
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-pack: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+-webkit-box-align: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.swiper-slide img {
+display: block;
+width: 100%;
+height: 100%;
+-o-object-fit: cover;
+ object-fit: cover;
+-webkit-filter:brightness(78%);
+      filter:brightness(78%)
+
+
+}
+.swiper-slide img:hover{
+  filter:brightness(80%)
+
+}
+.swiper-slide img:hover h6{
+  opacity:0.9 !important
+  
+
+}
+.swiper-slide img:hover p{
+  opacity:0.9 !important
+  
+
+}
+#slider_slide_heading{
+bottom:20px
+}
+@media only screen and (max-width: 576px) {
+.swiper {
+  width: 90%;
+  height: auto;
+  /* margin-top:50px */
+  
+  }
+}
+
+
+/* home_intro_ssss */
+#home_intro_ssss{
+height:-webkit-fit-content;
+height:-moz-fit-content;
+height:fit-content;
+margin:10px 3%;
+padding:40px 10px;
+/* border:1px solid rgba(0, 0, 0, 0.514); */
+background:var(--color-white);
+color:rgba(0, 0, 0, 0.815);
+/* background-image: url("../img/lab\ \(4\).jpg"); */
+}
+/* welcome home */
+#text_welcome_heading1{
+margin-top:20px;
+font-size:30px;
+
+}
+
+.home_welcome_para {
+text-align:justify;
+
+}
+
+
+
+
+/* vision and mission  */
+.home_vision_para{
+text-align:justify;
+
+}
+
+/* 
+home_student_number  */
+
+#home_student_numbers{
+padding:100px 20px;
+margin:50px;
+position: relative;
+}
+#home_student_numbers:before{
+content: " ";
+background-image: url("../img/pexels-edward-jenner-4033148\(2\).jpg");
+background-position: center;
+background-attachment: fixed;
+position:absolute;
+background-size: cover;
+background-repeat: no-repeat;
+inset:0;
+opacity:0.5
+
+}
+
+.home_student_numbers_div{
+isolation:isolate;
+padding:0 20px
+}
+.text-opacity7{
+opacity:0.7
+}
+.border_right{
+border-right:2px solid var(--color-border)
+}
+.home_student_numbers_heading {
+font-size:30px;
+}
+
+/* recent notices */
+#home-notice-news{
+  margin: 10px 3%;
+  padding: 40px 10px;
+}
+#recent_notices,#recent_news{
+  margin-top:10px;
+}
+.table th,td{
+opacity:0.75
+}
+.color_blue{
+color:var(--main-color);
+font-size: 25px;
+}
+.blue-hover{
+color:var(--color-black)
+
+}
+.blue-hover:hover{
+color:var(--main-color) !important
+
+}
+.padding-left-5px{
+  padding:5px !important
+}
+.home_news_ul li a{
+  opacity:0.75
+
+}
+
+/*  home_principle_message */
+#home_principle_message{
+margin:20px 5%;
+padding:0 10px;
+background-color: var(--color-white);
+}
+#home_principle_message_second_div img{
+width:500px
+
+
+}
+.home_principle_message_para{
+padding:3px 10px;
+text-align: justify;
+}
+
+
+#principle_intro{
+  width:fit-content
+}
+
+
+/* ************ home page end ************* */
+
+
+
+
+/* ************ footer start ************* */
+
+/* upper footer */
+.upper_footer{
+padding:20px 5%;
+height: auto;
+}
+
+
+/* X-small  */
+
+
+
+/* notices.html */
+
+#recent_notices_board{
+width:100%;
+height: -webkit-fit-content;
+height: -moz-fit-content;
+height: fit-content;
+}
+
+.heading_buttons_a{
+color:var(--color-heading-buttons-a);
+padding:10px 20px;
+width: -webkit-fit-content;
+width: -moz-fit-content;
+width: fit-content;
+margin-left:20px
+}
+
+#pagination_notices{
+width:90%;
+margin:auto
+}
+
+
+
+
+
+
+#footer{
+overflow:hidden
+}
+
+/* ************ admin mani start ************* */
+
+#admin_main{
+background-image: url('All-About-Tribhuvan-University-scaled.jpg');
+
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+#admin-form{
+height: 374px;
+width: 350px;
+padding: 40px;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+-webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+-webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+background-color:var(--admin-form-bgcolor) !important;
+}
+.eye_icon{
+position: absolute;
+right: 5px;
+font-size: 24px;
+z-index:99;
+opacity: 0.7;
+
+
+}
+#submit:hover{
+border:2px solid var(--color-white);
+
+}
+#submit:hover{
+background:var(--admin-submit-hover) !important;
+
+}
+
+
+
+
+/* ******************contact ************** */
+
+
+.contact_form{
+  background-color: var(--contact-form-background-color);
+  width:100%
+  
+}
+.form_input{
+  width:450px;
+  padding: 5px 7px;
+  margin-top:5px;
+  border:2px solid var(--form-input);
+  
+}
+textarea{
+  resize:none
+}
+
+
+
+/* admission.html  */
+
+
+#admission-form-main{
+  background-color: var(--admin-form-bgcolor) !important;
+  width:75%;
+
+}
+#form-title{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column
+}
+
+#admission-form{
+  width:75%;
+}
+.form-logo img{
+  width:100px
+  
+
+}
+.admission-form-div input{
+  
+  padding:4px 5px;
+  
+}
+
+#gender,#province{
+  padding:4px 5px;
+  height: fit-content;
+}
+.input1{
+  width:210px;
+}
+
+.input2{
+  width:340px;
+  padding:4px 5px;
+}
+
+
+
+
+/* swiper change icon */
+
+
+
+
+/*  home swiper img */
+.table_form_td{
+height:100%;
+text-align:center;
+border-radius:8px;
+
+
+}
+
+.table_form_input_height{
+ width:100%;
+ min-height: 74px; 
+  }
+
+
+/* about css */
+#about_main{
+  width:100%;
+  padding:20px 5%
+  }
+  .about_main_second_buttons{
+      padding:10px 6%;
+      width:80%;
+      margin:auto
+      /* background-image: url(../img/library\ \(3\).jpg); */
+  }
+  
+  .about_heading_header:hover{
+      color:#0D6EFD !important
+  }
+  .about_principle_intro{
+     width:40%;
+     margin:auto;
+     padding:10px;
+     
+  
+  }
+  .img_principle {
+      min-width:324px;
+      min-height:424px
+      
+  }
+  .img_principle img{
+      width:100%;
+      object-fit: cover;
+      
+  }
+  
+  
+  .about_principle_intro p {
+      color:white
+      
+  }
+  #about_main_vision_mission{
+    background-color: rgba(0, 0, 255, 0.03);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    }
+  
+  #about_main_history{
+    background-color: rgba(0, 0, 255, 0.03);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    }
+  #about_main_principle{
+    background-color: rgba(0, 0, 255, 0.03);
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .about_principle_intro{
+  line-height: 4px;
+  }
+  
+
+
+/* admin panel */
+.row{
+    --bs-gutter-x: 0 !important
+  }
+  .container-fluid{
+    --bs-gutter-x: 0 !important;
+  }
+ 
+  #header_admin_panel{
+    padding-left:20px;    
+    width: 150px !important;
+    height:100vh !important;
+    border-radius:0 8px 8px 0 !important;
+
+  }
+  .panel_header_div{
+ 
+    display: flex;
+  
+    align-items: center;
+    border-radius: 8px;
+    padding:0.25rem 0.25rem
+    
+  }
+  .panel_header_div i{
+  font-size: 10px;}
+  
+  .panel_header{
+    text-decoration: none;
+    /* color:black; */
+  }
+  .opacity_1{
+    opacity: 0.9 !important;
+  }
+  
+  .panel_input{
+    border-radius: 8px;
+    border: 2px solid var(--panel-input) !important;
+    padding: 2px 6px;
+    background-color:var(--admin-form-bgcolor);
+    color:var(--color-white)
+  }
+  input[type=number] {
+   appearance: textfield;
+  }
+  
+  
+  /* gallery */
+  .card img{
+    width:100%;
+    height:250px
+  
+  }
+  
+  /* more.html */
+  .card_notes{
+    width:200px;
+    height:300px;
+    /* padding:20px */
+    
+  }
+  .card_notes i{
+    font-size: 150px;
+    color:var(--color-red) !important;
+  }
+  #card_notes_a{
+    width:160px !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+    overflow: hidden !important;
+  }
+  .tr{
+    height:fit-content;
+    }
+  
+ /* textea  */
+ .textarea1{
+  height:200px;
+
+  border-radius: 8px;
+  border: 2px solid var(--panel-input) !important;
+  padding: 2px 6px;
+  background-color:var(--admin-form-bgcolor);
+  color:var(--color-white)
+ }
+
+ .admin_home_swiper_img{
+  width:70%;
+  height:100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin:auto
+  
+ }
+
+
+
+.select_image{
+  width:100%;
+  height:100%;
+  color:var(--grey-color);
+  
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+
+/* style_notice_open css */
+
+
+#notice_open_main{
+    
+  padding:20px 5%;
+}
+
+#notice_open_main_notice{
+  width:100%;
+  margin:auto;
+
+}
+.notice_open_main_img_div{
+width:70%;
+/* padding:10px; */
+margin:auto;
+height:fit-content ;
+/* border:2px solid rgba(0, 0, 0, 0.715); */
+overflow: hidden; 
+}
+.notice_open_main_img_div img{
+width: 100%;
+  object-fit: cover;
+  filter: brightness(90%);
+
+}
+.notice_open_main_img_div img:hover{
+  scale:1.01
+}
+.download_icons_div{
+  z-index:9999;
+  padding:10px 20px;
+}
+
+    /* gallery  */
+
+   .card-group{
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      gap: 10px;
+    } 
+ 
+
+    /* admission admin panel */
+    #apa_tr{
+      height:fit-content;
+    }
+    #apa_tr td{
+      height:100%;
+    
+    }
+ 
+      
+     #apa_tr td p, #apa_tr td a{
+      margin-top:35px;
+      text-align: center;
+    }
+
+    /* admin gallery */
+    #gallery_table tr td{
+      height:100% 
+    }
+      #gallery_table tr  td  input, #gallery_table tr  td  input p{
+      width:100%;
+      height:100% ;
+      text-align: center;
+      border: none !important;
+    } 
+
+    #gallery_table tr td .gallery_select_image{
+    width:100%;
+    height:70px;
+    color:var(--grey-color);
+    justify-content: center;
+    align-items: center;}
+  
+
+    /* admin panels nav */
+ 
+.user_icon_image{
+  height: 50px;
+  width: 50px;
+}
+
+
+
+
+
+
+
+
+/* animation css  */
+ @media only screen and (max-width: 360px) {
+
+  /* header  */
+  #name{
+    text-align:center;
+
+  }
+  #address{
+    font-size:15px ;
+    text-align:center;
+  }
+   /* gallery */
+   .card-group{
+    display: flex!important;
+    flex-direction: column;
+ 
+  }
+
+  }
+
+
+  @media only screen and (max-width: 558px) {
+   
+      .img_principle {
+          min-width:274px;
+          min-height:324px
+          
+      }
+ 
+      .card-group{
+        display: grid;
+        grid-template-columns:auto auto  !important;
+      }
+      
+      
+    
+    }
+
+  @media only screen and (max-width: 768px) {
+    .top_23{
+      top:-23px
+    }
+    .para_font_size{
+    
+      font-size:14px
+    }
+    .font_text_indent{
+      text-indent: 10px;
+      }
+
+/* adminpanel css */
+
+
+@media only screen and (max-width: 400px) {
+ 
+  .form_input{
+    width:200px !important;
+    
+    
+  }
+}
+
+
+
+@media only screen and (max-width: 558px) {
+ 
+  #admin_main{
+    height:-webkit-fit-content;
+    height:-moz-fit-content;
+    height:fit-content
+  }
+  #admin-form{
+    width: 100%;
+    background-color: var(--color-white) !important;
+    
+  }
+
+
+  .contact_form{
+    width:100%
+  }
+
+  .form_input{
+    width:300px;
+    
+    
+  }
+}
+
+
+
+
+
+  @media only screen and (max-width: 768px) {
+    .top_23{
+      top:-23px
+    }
+    .para_font_size{
+    
+      font-size:14px
+    }
+    .font_text_indent{
+      text-indent: 10px;
+      }
+
+    }
+
+/* admission form */
+
+#admission-form-main{
+  
+ width:100%;
+
+}
+    #admission-form{
+      width:100%;
+    }
+
+  }
+
+  @media only screen and (max-width: 992px) {
+
+  
+    
+  .contact_form{
+    width:100%
+  }
+
+  .form_input{
+    width:300px;
+    
+
+  }
+  
+  /* gallery  */
+  .card-group{
+
+    grid-template-columns: auto  auto auto;
+  }
+  
+  }
+  @media only screen and (max-width:1200px) {
+  
+  }
+  @media only screen and (max-width: 1400px) {
+  
+  }
+
+
+
+
+
+

@@ -1,0 +1,173 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shree Sarbajanik Secondary School</title>
+  <!-- favicon  -->
+  <link rel="shortcut icon" href="{% static 'assets/img/pngtree-school-logo-png-image_3977360.png'%}"
+    type="image/x-icon">
+
+
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/swiper.css' %}">
+  <!-- bootstrap css  -->
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <!-- bootstrap icons  -->
+  <link rel="stylesheet" href="{% static 'assets/css/bootstrap-icons.css'%}">
+  
+  <!-- style css  -->
+  <link rel="stylesheet" href="{% static 'assets/css/style.css'%}">
+  <!-- utensils css  -->
+  <link rel="stylesheet" href="{% static 'assets/css/utensils.css'%}">
+  <!-- CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/alertify.css'%}"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="{% static 'assets/css/defaultalertify.css'%}"/>
+
+
+
+</head>
+
+<body>
+
+  <div id="main">
+
+    <!-- header start  -->
+
+    <header id="header">
+      <nav id="navbar1" class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex flex-column flex-sm-row  justify-content-between">
+          <div id="logo_div" class="d-flex  flex-column flex-sm-row  pr-md-3 px-md-0  align-items-center">
+            <a class="navbar-brand" href="/"><img id="logo"
+                src="{% static 'assets/img/pngtree-school-logo-png-image_3977360.png' %}" alt="logo"></a>
+            <div id="school_name">
+              <p id="name" class=" fs-5 normal1-hover-effect  text-capitalize text-dark lh-1">shree sarbajanik secondary
+                school</p>
+              <p id="address" class="normal1-hover-effect  text-capitalize text-dark">Chhatradev-5 , Arghakhanchi ,
+                Nepal</p>
+            </div>
+
+
+          </div>
+
+          <div class="collapse navbar-collapse d-none d-lg-block" id="navbarSupportedContent">
+
+            <ul id="first_nav_first_ul" class="navbar-nav ">
+
+
+
+
+              {% for data in contact %}
+              <li class="nav-item">
+                <a class="nav-link  normal1-hover-effect mx-2 text-capitalize text-dark  " aria-current="page"
+                  >+977-{{data.phn_no}}</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link normal1-hover-effect mx-2  text-dark ">{{data.gmail}}</a>
+              </li>
+              {% endfor %}
+           
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- second nav  -->
+
+      <nav id="navbar2" class="navbar navbar-expand-lg bg-primary position-relative">
+        <div id="navbar2_2" class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul id="navbar2_ul" class="navbar-nav px-5">
+              <li class="nav-item">
+                <a class="nav-link normal1-hover-effect nav-hover-effect text-white text-capitalize" aria-current="page"
+                  href="/">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link text-capitalize normal1-hover-effect text-white nav-hover-effect dropdown-toggle"
+                  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  About <i class="bi bi-caret-down-fill"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="/AboutVisionMission/" class="dropdown-item text-capitalize ">Vision & mission</a></li>
+                  <li><a href="/AboutPrincipleMessage/" class="dropdown-item text-capitalize">Principle message</a>
+                  </li>
+
+                  <li><a href="/AboutHistory/" class="dropdown-item text-capitalize">History</a></li>
+                </ul>
+              </li>
+
+
+              <li class="nav-item">
+                <a class="nav-link normal1-hover-effect text-white text-capitalize nav-hover-effect"
+                  href="/notices/">Notices</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/gallery/" class="nav-link text-white text-capitalize normal1-hover-effect nav-hover-effect"
+                  aria-disabled="true">Gallery</a>
+              </li>
+
+
+
+
+
+              <li class="nav-item dropdown">
+                <a class="nav-link normal1-hover-effect text-capitalize text-white nav-hover-effect dropdown-toggle"
+                  href="/contact/">
+                  contact
+                </a>
+
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link normal1-hover-effect nav-hover-effect  text-capitalize text-white  dropdown-toggle"
+                  href="/more/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  More+ <i class="bi bi-caret-down-fill"></i>
+                </a>
+                <ul class="dropdown-menu ">
+                  <li><a class="dropdown-item text-capitalize" href="/more/">downloads</a></li>
+                  <li><a class="dropdown-item text-capitalize" href="/Admin/">Admin</a></li>
+
+                </ul>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+      <!-- start scroll notices  -->
+
+      <div id="scroller_notices" class="mt-1 d-flex w-100 overflow-hidden position-relative align-items-center">
+        <a id="notices_scroller_heading"
+          class="bg-primary text-decoration-none text-opacity7 text-white normal1-hover-effect fw-bold d-flex align-items-center">Notices</a>
+
+        <div class="tickerwrapper">
+          <ul class='list'>
+            {% for data in scroller %}
+            <li class='listitem'>
+              <a class="notice-scroll-a text-decoration-none text-capitalize text-opacity7 text-black blue-hover fw-bold"
+                href="{% url 'Notice_Open' data.id %}">{{data.title}}</a>
+            </li>
+            {% endfor %}
+
+          </ul>
+        </div>
+
+      </div>
+
+
+    </header>
+    <!-- end header  -->

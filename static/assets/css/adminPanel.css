@@ -1,0 +1,8 @@
+.img_swiper_view{
+    height: 60px;
+}
+.swiper_view_description{
+    height: 60px;
+    overflow-y: scroll;
+    text-align: justify;
+}

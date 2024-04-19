@@ -1,0 +1,58 @@
+{% extends "adminbase.html" %}
+{% block content %}
+
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 border">
+
+
+    <form id="costum_home_form" class="" method="POST">
+      {% csrf_token %}
+
+      <div class=" w-75 d-flex flex-column gap-3 mr-1 mb-3 py-2 rounded px-3 border-bottom"> 
+  
+        <h5 class="  text-opacity7 text-decoration-underline fw-bold ">History of SSSS</h5>
+  
+  
+        <div class="get-vm-para-div w-100  d-flex flex-column gap-3 scroll_y100 pb-4">
+
+
+        <div class="px-2">
+          <label class="padding_2_left text-capitalize text-kana" for="h-first-para"> First Paragaraph : </label>
+        <textarea class="textarea1 border mt-2 w-100" name="History-para1" id="h-first-para" minlength="200" maxlength="1000" cols="30" rows="10" placeholder="Enter first paragraph" required>{{form.firstpara}}</textarea>
+         </div>
+         
+    
+         <div class="px-2">
+          <label class="padding_2_left text-capitalize text-kana" for="h-second-para"> Second Paragaraph : </label>
+        <textarea class="textarea1 border mt-2 w-100" name="History-para2"  minlength="200" maxlength="2000" id="h-second-para" cols="30" rows="10" placeholder="Enter Second paragraph" required>{{form.secondpara}}</textarea>
+         </div>
+    
+         
+    
+         <div class="px-2">
+          <label class="padding_2_left text-capitalize text-kana" for="h-third-para">Third Paragaraph : </label>
+        <textarea class="textarea1 border mt-2 w-100" name="History-para3"  minlength="200" maxlength="1000" id="h-third-para" cols="30" rows="10" placeholder="Enter third paragraph" required>{{form.thirdpara}}</textarea>
+         </div>
+
+
+         <div class="px-2">
+          <label class="padding_2_left text-capitalize text-kana" for="h-third-para">fourth Paragaraph : </label>
+        <textarea class="textarea1 border mt-2 w-100" name="History-para4"   minlength="200" maxlength="1000" id="h-fourth-para" cols="30" rows="10" placeholder="Enter third paragraph" required>{{form.fourthpara}}</textarea>
+         </div>
+
+         
+         <div class="px-2 mb-4 pe-4 d-flex justify-content-end">
+          <input id="submit1" class="bg-primary py-1 px-3 text-white normal1-hover-effect rounded border" type="submit" value="Submit">
+         </div>
+        </div>
+
+
+
+
+      </div>
+
+
+
+      
+    </form>
+</div>
+{% endblock %}

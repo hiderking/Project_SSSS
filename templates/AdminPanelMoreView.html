@@ -1,0 +1,62 @@
+{% extends "adminbase.html" %}
+{% block content %}
+{% load static %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3">
+
+  
+  <div class="title-div d-flex justify-content-between py-3 mx-4">
+    <h5 class="card-title text-capitalize fw-bold ">Document View</h5>
+    <div class="update_icon d-flex gap-4">
+      
+      <a class="update btn btn-primary  text-white" href="/AdminPanelMoreAdd/"> Add New</a>
+    </div>
+  </div>
+  
+    
+    <div class="select_table border scroll_y100">
+      
+        <table id="table" class="table">
+            <thead>
+              <tr>
+                <th class="text-capitalize text-center col-1" scope="col ">Id</th>
+                <th class="text-capitalize text-center col" scope="col-3">Title</th>
+               
+                <th class="text-capitalize text-center col-3" scope="col ">Files</th>
+                {% if category == "admin" %}
+                <th class="text-capitalize text-center col-1" scope="col ">uploadby</th>
+                {% endif %}
+                <th class="text-capitalize text-center col-2" scope="col ">edit</th>
+                
+                
+              </tr>
+            </thead>
+
+            <tbody id="tbody">
+              {% for data in form %}
+              <tr>
+              <td class=" text-center col-1" scope="col ">#{{data.id}}</td>
+              <td class=" text-center col" scope="col-3">{{data.title}}</td>
+              <td class=" text-center col-3" scope="col "><a href="{{MEDIA_URL}}{{data.file.url}}">Open file</a></td>
+
+              {% if category == "admin" %}
+              <th class="text-capitalize text-center col-1" scope="col ">{{data.uploadby}}</th>
+              {% endif %}
+              <td class="text-center table_form_td text-capitalize col-2 w-100 d-flex justify-content-center gap-1" scope="col-1">
+
+                <a href="{% url 'AdminPanelMoreEdit' data.id %}" id="edit_btn" class=" edit_btn btn text-primary btn-white" ><i class="normal1-hover-effect fs-4 bi bi-pencil-square"></i></a>
+
+                <a href="{% url 'deletemore' data.id %}" id="delete_btn"  class=" delete_btn btn btn-white text-primary "><span class="bi  bi-x  fs-4 fw-bold normal1-hover-effect"></span></a>
+
+              </td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+            
+          </table>
+
+    </div>
+ 
+</div>
+
+{% endblock %}

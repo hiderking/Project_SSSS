@@ -1,0 +1,80 @@
+{% extends "adminbase.html" %}
+{% block content %}
+{% load static %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3">
+
+  <div class="title-div d-flex justify-content-between py-3 mx-4">
+    <h5 class="card-title text-capitalize fw-bold ">Notice View</h5>
+    <div class="update_icon d-flex gap-4">
+      
+      <a class="update btn btn-primary  text-white" href="/AdminPanelNoticeAdd/"> Add New</a>
+    </div>
+  </div>
+
+    <div class="select_table border scroll_y100">
+      
+        <table id="table" class="table ">
+            <thead>
+              <tr>
+                <th class="text-capitalize text-center col-1" scope="col ">Id</th>
+                <th class="text-capitalize text-center col-2" scope="col-2">title</th>
+                <th class="text-capitalize text-center col-3" scope="col-2">descprition</th>
+                <th class="text-capitalize text-center col-1" scope="col ">Image</th>
+                <th class="text-center  col-1" scope="col ">File2</th>
+                <th class="text-center  col-1" scope="col ">File3</th>
+                <th class="text-capitalize text-center col-1" scope="col ">date</th>
+                {% if category == "admin" %}
+                <th class="text-capitalize text-center col-1" scope="col ">Uploadby</th>
+                {%  endif %}
+                <th class="text-capitalize text-center col-2" scope="col ">edit</th>
+                
+                
+              </tr>
+            </thead>
+
+            <tbody id="tbody">
+              {% for data in form %}
+                <tr >
+                    <td class="text-center  col-1" scope="col-1">{{data.id}}</td>
+                    <td class="text-center text-bold  col-2" scope="">{{data.title}}</td>
+                    <td class="text-center  col-3" scope="col-2">{{data.description}}</td>
+                    <td class="text-center  col-1" scope="col-1 "><a href="{{MEDIA_URL}}{{data.file1.url}}">Open file</a></td>
+                    {% if data.title2 %}
+                    <td class="text-center  col-1" scope="col-1 "><a href="{{MEDIA_URL}}{{data.file2.url}}">{{data.title2}}</a></td>
+
+                    {% else %}
+                    <td class="text-center  col-1" scope="col-1 ">None</td>
+                    {% endif %}
+                 
+                    {% if data.title3 %}
+                  
+                    <td class="text-center  col-1" scope="col-1 "><a href="{{MEDIA_URL}}{{data.file3.url}}">{{data.title3}}</a></td>
+                    {% else %}
+
+                    <td class="text-center  col-1" scope="col-1 ">None</td>
+                    {% endif %}
+                   
+                   
+                    <td class="text-center  col-1" scope="col-3">{{data.updateDate.date}}</td>
+                    {% if category == "admin" %}
+                    <td class="text-capitalize text-center col-1" scope="col ">{{data.uploadby}}</td>
+                    {%  endif %}
+
+                    <td class="text-center table_form_td text-capitalize col-2 w-100 d-flex justify-content-center gap-1" scope="col-1">
+
+                        <a href="{% url 'editnotice' data.id %}" id="edit_btn" class=" edit_btn btn btn-white text-primary"  ><i class="normal1-hover-effect fs-4 bi bi-pencil-square"></i></button>
+
+                        <a href="{% url 'deletenotice' data.id %}" id="delete_btn"  class=" delete_btn btn btn-white text-primary "><span class="bi  bi-x  fs-4 fw-bold normal1-hover-effect"></span></button>
+
+                      </td>
+                    
+                  </tr>
+              {% endfor %}
+            </tbody>
+
+            
+          </table>
+
+    </div>
+</div>
+{% endblock %}

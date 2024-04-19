@@ -1,0 +1,52 @@
+{% extends "base1.html" %}
+{% block content %}
+{% load static %}
+<main class="container-fluid height_100vh  d-flex flex-column  align-items-center  justify-content-center" id="admin_main">
+
+  <div class="btn ">
+    <a id="back_icon" href="/"><i class="bi fs-1 bi-arrow-left-circle-fill"></i></a>
+  </div>
+
+  <form id="admin-form" class="rounded bg-primary " method="POST">
+    {% csrf_token %}                    
+
+    <h4 class="text-capitalize  text-white normal1-hover-effect fw-bold">Admin Login</h4>
+
+    <div class="admin_inputs d-flex flex-column gap-3">
+  <div class="input-group mb-3">
+    <span class="input-group-text bg-primary text-white" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
+    <input type="text" class="form-control border-input" placeholder="Username" name="username" id="username" aria-label="username" aria-describedby="basic-addon1">
+  </div>
+  <!-- <div class="px-2">
+    <label for="category" class="form-label"> Select Position</label>
+    <select name="category" id="category"  class="form-select panel text-primary">
+      <option value="admin">admin</option>
+      <option value="moderator">moderator</option>
+    </select>
+  </div> -->
+
+
+  <div class="input-group mb-3">
+    <span class="input-group-text bg-primary text-white" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
+
+    <input type="password" name="password" value="" id="myInput" class="form-control border-input" placeholder="Password">
+  
+  </div>
+  <div class="lower_options d-flex justify-content-between">
+  <div class="show_password font_14px text-white text-decoration-underline">
+    <input class="me-2" type="checkbox" onclick="myFunction()">Show Password
+  </div>
+  <div class="forgot_password ">
+    <a class="font_14px text-white " href="/AdminForgotpassword/">Forgot Password?</a>
+  </div>
+       
+ </div>
+
+</div>
+  <input id="submit" type="submit" class="normal1-hover-effect px-4 py-2 bg-primary text-white heading_buttons_a rounded" value="submit">
+</form>
+  
+  
+
+</main>
+ {% endblock %}

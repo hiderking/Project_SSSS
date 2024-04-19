@@ -1,0 +1,53 @@
+{% extends "adminbase.html" %}
+{% block content %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 border">
+
+
+    <form id="costum_home_form" class="" method="POST" >
+      {% csrf_token %}
+      <div class=" w-75 d-flex flex-column gap-3 mr-1 mb-3 py-2 rounded px-3 border-bottom"> 
+
+        <h5 class="text-capitalize  text-opacity7 text-decoration-underline fw-bold ">Vision and mission</h5>
+
+
+        <div class="get-vm-para-div d-flex flex-column gap-3 w-100 scroll_y100 pb-4" >
+        <div class="px-2">
+
+          <label class="padding_2_left text-capitalize text-kana" for="V-first-para">Vision Mission First Paragaraph : </label>
+        <textarea class="textarea1 border mt-2 w-100" name="vision-mission-para1" id="V-first-para" maxlength="1000" minlength="200" cols="30" rows="10" placeholder="Enter first paragraph">{{form.firstpara}}</textarea>
+         </div>
+         
+
+         <div class="px-2">
+          <label class="padding_2_left text-capitalize text-kana" for="V-second-para">Vision Mission Second Paragaraph : </label>
+        <textarea class="textarea1 border mt-2 w-100" name="vision-mission-para2" id="V-second-para"  maxlength="2000" minlength="200"  cols="30" rows="10" placeholder="Enter Second paragraph">{{form.secondpara}}</textarea>
+         </div>
+
+         
+
+         <div class="px-2">
+          <label class="padding_2_left text-capitalize text-kana" for="V-third-para">Vision Mission Third Paragaraph : </label>
+        <textarea class="textarea1 border mt-2 w-100" name="vision-mission-para3" id="V-third-para" cols="30"  maxlength="1000" minlength="200"  rows="10" placeholder="Enter third paragraph">{{form.thirdpara}}</textarea>
+         </div>
+
+         <div class="px-2">
+          <label class="padding_2_left text-capitalize text-kana" for="V-third-para">Vision Mission Fourth Paragaraph : </label>
+        <textarea class="textarea1 border mt-2 w-100" name="vision-mission-para4" id="V-fourth-para"  maxlength="1000" minlength="200"  cols="30" rows="10" placeholder="Enter ffourth paragraph">{{form.fourthpara}}</textarea>
+         </div>
+
+
+           <div class="px-2 mb-4 pe-4 d-flex justify-content-end">
+          <input id="submit1" class="bg-primary py-1 px-3 text-white normal1-hover-effect rounded border" type="submit" value="Submit">
+         </div>
+        </div>
+
+      
+
+
+
+      </div>
+
+
+    </form>
+</div>
+{% endblock  %}

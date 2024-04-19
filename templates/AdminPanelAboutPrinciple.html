@@ -1,0 +1,110 @@
+{% extends "adminbase.html" %}
+{% block content %}
+<div id="costum_home_div" class="d-flex flex-column w-100 mx-3 mt-3 border">
+
+
+  <form id="costum_home_form" class="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class=" w-75 d-flex flex-column gap-3 mr-1 mb-3 py-2 rounded px-3 border-bottom">
+
+      <h5 class="text-capitalize  text-opacity7 text-decoration-underline fw-bold">Principle Message</h5>
+
+
+
+
+      <div class="get-pm-para-div  d-flex flex-column gap-3  w-100 scroll_y100 pb-4">
+
+
+
+        <div class="px-2">
+          <label class="text-capitalize padding_2_left text-kana" for="principle-name">Principle Name :</label>
+          <input class="panel_input border w-100 mt-2" type="text" name="principle-name" id="principle-name" minlength="10" maxlength="100"
+            placeholder="Principle Name" value="{{form.title}}" required>
+        </div>
+
+
+
+        <div class="px-2">
+          <label class="padding_2_left text-kana" for="Short-Desc">Principle Short Intro : </label>
+          <input class="panel_input border w-100 mt-2" type="text" maxlength="200" name="Short-Desc" id="Short-Desc"
+            placeholder="Short Intro" value="{{form.principleintro}}" required>
+        </div>
+
+
+
+        {%  if form.img   %}
+        <div class="px-2">
+          <label class="padding_2_left text-kana" for="img_showing">Select Image : </label>
+          <div id="view_swiper_img_dig" class="d-flex flex-column">
+            <img id="img1" class="" src="{{ MEDIA_URL }}{{ form.img.url}}" alt="" width="100px">
+            <input onchange="showImage()" class=" w-100 mt-2 text-pr principle-img" type="file" name="principle-img"
+              id="img_showing" accept="image/*">
+          </div>
+          {% else %}
+          <div class="px-2">
+            <label class="padding_2_left text-kana" for="img_showing">Select Image : </label>
+            <div id="view_swiper_img_dig" class="d-flex flex-column">
+              <img id="img1" class="" src="" alt="" width="100px">
+              <input onchange="showImage()" class=" w-100 mt-2 text-pr principle-img" type="file" name="principle-img"
+                id="img_showing" accept="image/*" required>
+            </div>
+            {% endif %}
+
+
+
+
+
+        </div>
+
+        <div class="px-2 mt-3">
+          <label class="padding_2_left text-capitalize text-kana" for="p-first-para"> First Paragaraph : </label>
+          <textarea class="textarea1 border mt-2 w-100" name="principle-para1" id="p-first-para" cols="30" rows="10" minlength="200" maxlength="1000"
+            placeholder="Enter first paragraph" required>
+          {{form.firstpara}}
+        </textarea>
+        </div>
+
+
+        <div class="px-2">
+          <label class="padding_2_left text-capitalize text-kana" for="p-second-para">Second Paragaraph : </label>
+          <textarea class="textarea1 border mt-2 w-100" name="principle-para2" minlength="200" maxlength="2000" id="p-second-para" cols="30" rows="10"
+            placeholder="Enter Second paragraph" required>{{form.secondpara}}</textarea>
+        </div>
+
+
+
+        <div class="px-2">
+          <label class="padding_2_left text-capitalize text-kana" for="p-third-para"> Third Paragaraph : </label>
+          <textarea class="textarea1 border mt-2 w-100" name="principle-para3" id="p-third-para" cols="30" rows="10" minlength="200" maxlength="1000"
+            placeholder="Enter third paragraph" required>
+          {{form.thirdpara}}
+        </textarea>
+        </div>
+
+        <div class="px-2">
+          <label class="padding_2_left text-capitalize text-kana" for="p-third-para"> Fourth Paragaraph : </label>
+          <textarea class="textarea1 border mt-2 w-100" name="principle-para4" id="p-fourth-para" cols="30" rows="10" minlength="200" maxlength="1000"
+            placeholder="Enter third paragraph" required>
+          {{form.fourthpara}}
+        </textarea>
+        </div>
+
+        <div class="px-2 pe-4 d-flex justify-content-end">
+          <input id="submit1" class="bg-primary py-1 px-3 mb-4 text-white normal1-hover-effect rounded border"
+            type="submit" value="Submit">
+        </div>
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+  </form>
+</div>
+
+{% endblock %}

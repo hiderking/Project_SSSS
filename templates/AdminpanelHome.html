@@ -1,0 +1,76 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+  
+  <main class="container-fluid d-flex  mb-4" id="admin_panel_main">
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 border">
+    <div class="title-div mx-3 py-3">
+    <h5 class="card-title fw-bold">Dashboard</h5></div>
+
+    <div class="costumization_link_div w-75 m-auto mt-3 scroll_y100 pe-5">
+        <div class="costumization_link_card  m-auto mt-3 me-4">
+
+        <div class="link_title">
+            <a class="text-decoration-none text-white py-4 px-4 rounded fw-bold bg-primary w-100 d-flex justify-content-center text-capitalize " >Home</a>
+        </div>
+
+        <div  class="link_card  m-auto mt-4 row justify-content-evenly">
+            <a href="/AdminPanelHomeSwiperView/" class="text-decoration-none  text-capitalize py-2 px-4 rounded fw-bold border col-5 d-flex justify-content-center blue-hover" >Swiper View</a>
+            <a href="/AdminPanelAchievementView/" class="text-decoration-none  text-capitalize py-2 px-4 rounded fw-bold border col-5 d-flex justify-content-center blue-hover" >Achievements View</a>
+        </div>
+    </div>
+    
+        <div class="costumization_link_card  m-auto mt-5 me-4">
+
+        <div class="link_title">
+            <a class="text-decoration-none text-white py-4 px-4 rounded fw-bold bg-primary w-100 d-flex justify-content-center text-capitalize " >About</a>
+        </div>
+
+        <div  class="link_card  m-auto mt-4 row justify-content-evenly">
+            <a href="/AdminPanelAboutView/" class="text-decoration-none  text-capitalize py-2 px-4 rounded fw-bold border col-5 d-flex justify-content-center blue-hover" >About View</a>
+        </div>
+    </div>
+        <div class="costumization_link_card  m-auto mt-5 me-4">
+
+        <div class="link_title">
+            <a class="text-decoration-none text-white py-4 px-4 rounded fw-bold bg-primary w-100 d-flex justify-content-center text-capitalize " >Notices</a>
+        </div>
+
+        <div  class="link_card  m-auto mt-4 row justify-content-evenly">
+            <a href="/AdminPanelNoticeView/" class="text-decoration-none  text-capitalize py-2 px-4 rounded fw-bold border col-5 d-flex justify-content-center blue-hover" >Notice</a>
+            <a href="/AdminPanelNewsView/" class="text-decoration-none  text-capitalize py-2 px-4 rounded fw-bold border col-5 d-flex justify-content-center blue-hover" >News</a>
+        </div>
+    </div>
+        
+        
+        <div class="costumization_link_card  m-auto mt-5 me-4"> 
+
+        <div class="link_title">
+            <a class="text-decoration-none text-white py-4 px-4 rounded fw-bold bg-primary w-100 d-flex justify-content-center text-capitalize " >More</a>
+        </div>
+
+        <div  class="link_card  m-auto mt-4 row justify-content-evenly">
+            <a href="/AdminPanelMoreView/" class="text-decoration-none  text-capitalize py-2 px-4 rounded fw-bold border col-5 d-flex justify-content-center blue-hover" >More View</a>
+        </div>
+    </div>
+        <div class="costumization_link_card  m-auto mt-5 me-4">
+
+        <div class="link_title">
+            <a class="text-decoration-none text-white py-4 px-4 rounded fw-bold bg-primary w-100 d-flex justify-content-center text-capitalize " >Contact</a>
+        </div>
+
+        <div  class="link_card  m-auto mt-4 row justify-content-evenly">
+            <a href="/AdminPanelContactsView/" class="text-decoration-none  text-capitalize py-2 px-4 rounded fw-bold border col-5 d-flex justify-content-center blue-hover" >Contact Form</a>
+            <a href="/AdminPanelContactLinkView/" class="text-decoration-none  text-capitalize py-2 px-4 rounded fw-bold border col-5 d-flex justify-content-center blue-hover" >Contact link And Socila Media</a>
+        </div>
+    </div>
+  
+        
+        
+    </div>
+    <!-- {% for data in admin %}
+    <a href="#">{{data.username}}</a>
+    <a href="">{{data.bio}}</a>
+    {% endfor %} -->
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "adminbase.html" %}
+{% block content %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 border">
+  
+
+    <form id="costum_home_form" class="scroll_y100 me-4 pb-4" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class=" w-75 d-flex flex-column gap-3 mr-1 mb-3 py-2 rounded px-3 border-bottom"> 
+
+         <h5 class="text-capitalize  text-opacity7 text-decoration-underline fw-bold">School Achievements</h5>
+
+     
+
+
+        <div class="get-pm-para-div  d-flex flex-column gap-3  w-100">
+
+          <div class="px-2">
+            <label class="text-capitalize padding_2_left text-kana" for="experience_year">Year of experiences:</label>
+            <input class="panel_input border w-100 mt-2" type="number" name="experience_year" id="experience_year" placeholder="Enter year of experiences" value="{{form.year_of_experiences}}"  required>
+           </div>
+  
+          <div class="px-2">
+            <label class="text-capitalize padding_2_left text-kana" for="teacher_no">No of teachers:</label>
+            <input class="panel_input border w-100 mt-2" type="number" name="teacher_no" id="teacher_no" placeholder="Enter number of teacher" value="{{form.teacher_no}}"  required>
+           </div>
+           <div class="px-2">
+            <label class="text-capitalize padding_2_left text-kana" for="bright_students">Bright students:</label>
+            <input class="panel_input border w-100 mt-2" type="number" name="bright_students" id="bright_students" placeholder="Enter number of bright students" value="{{form.bright_students}}"  required>
+           </div>
+          <div class="px-2">
+            <label class="text-capitalize padding_2_left text-kana" for="glorious_alumini">Glorious Alumini:</label>
+            <input class="panel_input border w-100 mt-2" type="number" name="glorious_alumini" id="glorious_alumini" placeholder="Enter glorious alumini" value="{{form.glorious_alumini}}"  required>
+           </div>
+        
+          
+
+      <div class="px-2 d-flex justify-content-end">
+        <input id="submit1" class="bg-primary py-1 px-3 text-white normal1-hover-effect rounded border" type="submit" value="Submit">
+       </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <main class="container-fluid" id="home_main">
+
+      <!-- Swiper -->
+      <div class="swiper rounded mySwiper mt-2">
+        <div id="swiper" class="swiper-wrapper">
+          {% for x in form %}
+          <div class="swiper-slide position-relative anime">
+
+            <img class="swiperImg" src="{{MEDIAL_URL}}{{x.img.url}}" alt="photo">
+            <div id="slider_slide_heading" class="slider_slide_heading position-absolute lh-1
+          ">
+              <h6 id="swiperTitle" class="swiperTitle text-capitalize text-opacity7 fw-bold fs-3  text-white ">
+             {{x.title}} </h6>
+              <p id="swiperPara" class="swiperPara text-capitalize text-opacity7 fw-bold fs-6 text-white ">{{x.desc}}</p>
+            </div>
+
+
+          </div>
+
+          {% endfor %}
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <!-- home_intro_ssss  -->
+      <div id="home_intro_ssss" class="row d-flex flex-column flex-sm-row justify-content-between">
+
+        <!-- start welcome home  -->
+        {% for data in intro %}
+        <div id="home_welcome" class="home_welcome col-sm-6  col-12 ">
+          <div class="heading_home_welcome d-flex justify-content-center">
+            <h3 id="text_welcome_heading2 " class="text-uppercase fw-bold  text-align-justify img ">shree sarbajanik secondary school</h3>
+          </div>
+          <div class="welcome_info d-flex justify-content-center w-100">
+          <i class=" ms-2  para_font_size text-align-justify text-center  text-info">" Welcome to Shree Sarbajanik Secondary School (SSSS) "</i></div>
+          <div class="paragraph_div w-100 mt-3">
+          <p class="para_font_size home_welcome_para  para_font_size ">
+            <!-- Shree Sharbajanik Secondary School (ssss) is a academic school established in 2015BS with the aim of
+            providing quality education to Nepalese students. It was founded by a group of visionary professionals,
+            government and academicians who recognized the need for an government institution that could contribute to
+            the literacy growth of peoples living in chhatragunja VDC. SSSS is a not-for-profit governmental institute
+            registered with the District Administration Office in Arghakhanchi.-->{{data.firstpara}}</p> 
+          <p class="para_font_size home_welcome_para ">
+<!--             
+            SSSS's establishment served as a catalyst for the literacy development living in Chhatragunja VDC and
+            neighbouring VDC's. The school is committed to maintaining its reputation as an institution dedicated to
+            quality education and academic freedom, setting an example for others to follow.
+
+            Over the years, Sarbajanik sec. school has focused on upgrading, and standardizing its academic reputation.
+            It offers Management and Humanities courses in +2 level.The school plans to introduce more innovative and
+            applied courses in the future.The teachers and staffs at SSSS all are professionals and well qualified and
+            all hired by giving the toughest exam taken by Loksewa Aayog.-->
+            {{data.secondpara}}
+          </p> 
+          <p class="para_font_size home_welcome_para  d-X-small-none d-sm-block">
+            <!-- Despite its modest beginnings, SSSS has expanded its physical and instructional resources with the help of
+            Nepal government and Chhatradev Rural Municipality and now possesses comparable learning facilities to other
+            reputed schools in the country and the region. It is situated in the Chhatradev Rural Municipality of
+            Arghakhanchi and provides an ideal learning environment amidst natural surroundings.--> {{data.thirdpara}}
+          </p> 
+          </div>
+        </div>
+        <!-- end welcome home  -->
+        {% endfor %}
+
+        <!-- start vision mission home  -->
+        {% for data in vision %}
+        <div id="home_vision_mission" class="home_vision_mission text-dark col-sm-5 col-12">
+          <p 
+            class="text-dark text-decoration-none h3 fw-bold  mt-1">Vision and
+            Mission</p>
+            
+            <div class="vision_paragraph_div">
+          <p class="para_font_size home_vision_para  mt-4">{{data.firstpara}}
+          </p>
+          <p class="para_font_size home_vision_para ">
+           {{data.secondpara}}<a href="/AboutVisionMission/"
+              class="text-capitalize normal1-hover-effect text-decoration-none ms-2">Read more</a>
+          </p>
+        </div>
+
+          <!-- end vision mission home  -->
+        </div>
+        {% endfor %}
+
+
+        <!-- end home_intro_ssss  -->
+      </div>
+      <!-- start home_student_numbers  -->
+      {% for  data in achievement %}
+      <div id="home_student_numbers"
+        class="d-flex flex-column flex-sm-row justify-content-between d-none d-sm-block d-sm-flex ">
+
+        <div class="home_student_numbers_first  home_student_numbers_div border_right  text-center">
+          <h4 class="home_student_numbers_heading fw-bold text-primary">{{data.year_of_experiences}}+</h4>
+          <p class="home_student_number_para text-capitalize text-opacity7  text-dark">Years of educational experience
+          </p>
+        </div>
+
+        <div class="home_student_numbers_second home_student_numbers_div border_right  text-center">
+          <h4 class="home_student_numbers_heading fw-bold text-info">{{data.teacher_no}}+</h4>
+          <p class="home_student_number_para text-capitalize text-opacity7  text-dark">faculty members</p>
+        </div>
+
+        <div class="home_student_numbers_third  home_student_numbers_div border_right  text-center">
+          <h4 class="home_student_numbers_heading fw-bold text-danger ">{{data.bright_students}}+</h4>
+          <p class="home_student_number_para text-capitalize text-opacity7  text-dark">Bright Students</p>
+        </div>
+
+        <div class="home_student_numbers_fourth home_student_numbers_div  text-center">
+          <h4 class="home_student_numbers_heading fw-bold text-success ">{{data.glorious_alumini}}+</h4>
+          <p class="home_student_number_para text-capitalize text-opacity7  text-dark">glorious alumini</p>
+        </div>
+        <!-- end home_student_numbers -->
+
+      </div>
+      {% endfor %}
+
+      <!-- home-notices-news  start  -->
+      <div id="home-notice-news" class="row justify-content-between">
+       <!-- recent notices -->
+        <div id="recent_notices" class="col-12 col-sm-6">
+
+          <p class="h4 text-decoration-none text-dark fw-bold  text-capitalize" >recent
+            notices</p>
+
+          <div class="table border rounded">
+            <table id="table" class="table p-0 m-0">
+             
+              <tbody>
+                {% for data in notice %}
+                <tr class="tr ">
+                  <td>
+                    <div class="d-flex flex-column recent_notice_div">
+                      <div class="upload_date d-flex gap-2  align-items-end">
+                      <i class="bi bi-calendar2-event text-secondary fs-2"></i><p class="home-notice_date text-secondary">{{data.updateDate.date}}</p></div>
+                      <a class="home-notice-title text-decoration-none text-primary blue-hover fw-bold"
+                        href="{% url 'Notice_Open' data.id %}">{{data.title}}</a>
+                      
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+
+              </tbody>
+            </table>
+          
+          </div>
+            <div class="notice_more_btn w-100 d-flex justify-content-end">
+            <a class=" text-decoration-none  text-white btn btn-primary  normal1-hover-effect text-capitalize mt-1" href="/notices/">More</a>
+          </div>
+
+        </div>
+        <!-- recent notices  -->
+
+        <!-- recent news  -->
+        <div id="home_news" class="col-12 col-sm-5 ">
+          <p class="h4  text-dark fw-bold  text-capitalize" >News</p>
+          <ul class="home_news_ul padding-left-5px mt-3 d-flex gap-3  flex-column p-4 border rounded">
+            {% for data in  news %}
+
+            <li class="d-flex flex-column  px-3">
+              <div class="uploaddate_news d-flex gap-2  align-items-end">
+              <i class="bi bi-newspaper text-secondary fs-2"></i>
+              <p class="home-news-date text-secondary text-opacity6">{{data.updateDate.date}}</p>
+              </div>
+              <a target="_blank" class="home-news-title text-decoration-none text-primary blue-hover  fw-bold "
+                href="{{data.link}}">{{data.title}}</a>
+            </li>
+            {% endfor %}
+
+          </ul>
+         
+          <div class="notice_more_btn w-100 d-flex justify-content-end">
+            <a class=" text-decoration-none  text-white btn btn-primary mt-1 normal1-hover-effect text-capitalize" href="/notices/">More</a>
+          </div>
+        </div>
+        <!-- end recent news -->
+
+      </div>
+
+
+      <!-- start home_principle_message  -->
+
+      <div id="home_principle_message" class="py-5">
+        <h4 id="home_principle_message_heading" class="fw-bold normal1-hover-effect text-capitalize text-center mb-4">
+          welcome message from acting Principle</h4>
+
+          {% for data in principle %}
+        <div id="home_principle_message_second_div" class="d-flex flex-column flex-sm-row gap-2 gap-sm-4 mt-4">
+          <div id="principle_intro" class="">
+            <!-- principle photo  -->
+            <img id="principle_img" class="rounded" src="{{ MEDIA_URL}}{{data.img.url}}"
+              alt="">
+
+            <div class="principle_identification">
+              <h4 class="text-capitalize  fw-bold text-center">Associate Prof. <br>{{data.title}}
+              </h4>
+              <p id="principle_position " class="text-capitalize text-center text-opacity7">Principle</p>
+            </div>
+
+          </div>
+          <div id="home_principle_message_para_div" class=" d-flex flex-column">
+            <p class="para_font_size home_principle_message_para  mt-4 font_text_indent">
+             {{data.firstpara}}
+            </p>
+            <p class="para_font_size home_principle_message_para  mt-1">
+             {{data.secondpara}}
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+
+        <!-- end home_principle_message -->
+      </div>
+      
+
+
+    </main>
+   {% endblock %}

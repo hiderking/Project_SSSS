@@ -1,0 +1,39 @@
+  
+    </div>
+  
+  
+  
+  
+  
+  
+    {% load static %}
+    <!-- gsap  -->
+    <script src="{% static 'assets/js/gsap.js'%}"></script>
+    <!-- Swiper JS -->
+    <script src="{% static 'assets/js/swiper.js'%}"></script>
+    <!-- bootstrap js  -->
+    <script src="{% static 'assets/bootstrap/js/bootstrap.bundle.js'%}"></script>
+    <!-- jquerry  -->
+    <script src="{% static 'assets/js/jquery.js'%}"></script>
+    <!-- TweenMax js -->
+    <script src="{% static 'assets/js/tweenmax.js'%}"></script>
+    <!-- script js  -->
+    <script src="{% static 'assets/js/script.js'%}"></script>
+    <!-- animation js -->
+    <script src="{% static 'assets/js/animation.js'%}"></script>
+  
+<!-- JavaScript -->
+<script src="{% static 'assets/js/alertify.js'%}"></script>
+<script>
+    {% for msg in messages %}
+ clearTimeout(window.timeout);
+  alertify.set('notifier','position', 'top-right');
+  alertify.success('{{msg}}');
+  window.timeout = setTimeout(function(){
+   alertify.dismissAll();
+ },2500);
+ {% endfor %}
+</script>
+  </body>
+  
+  </html>

@@ -1,0 +1,125 @@
+{% extends "adminbase.html" %}
+{% block content %}
+{% load static %}
+<div id="costum_home_div"  class="d-flex flex-column w-75 mx-auto mt-3 border">
+
+
+  <section class="section profile">
+
+
+        <div class="card">
+          <div class="card-body pt-3">
+            <!-- Bordered Tabs -->
+            <ul class="nav nav-tabs nav-tabs-bordered">
+
+              <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#contact_overview">SSSS Contact Overview</button>
+              </li>
+
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#social_media_edit">Social Media Overview</button>
+              </li>
+
+            </ul>
+            <div class="tab-content pt-2">
+
+              <div class="tab-pane fade show active contact_overview pt-3" id="contact_overview">
+            
+            <div class="profile_details_div d-flex flex flex-column gap-4">
+
+
+                <div class="title-div d-flex justify-content-between py-3 mx-4">
+                  <h5 class="card-title text-capitalize fw-bold ">Contact</h5>
+                  <div class="update_icon d-flex gap-4">
+                    
+                    <a class="update btn btn-primary  text-white" href="/AdminPanelContactAdd/"> Add New</a>
+                  </div>
+                </div>
+
+                {% for data in contact %}
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label ">Phone No :</div>
+                  <div class="col-lg-9 col-md-8">{{data.phn_no}}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Gmail_api :</div>
+                  <div class="col-lg-9 col-md-8"><a href="{{data.gmail_api.url}}">{{data.gmail_api}}</a></div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Gmail :</div>
+                  <div class="col-lg-9 col-md-8"><a class="text-dark" >{{data.gmail}}</a></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 labelq">Google Location :</div>
+                  <div class="col-lg-9 col-md-8"><a href="{{data.location.url}}">{{data.location}}</a></div>
+                </div>
+                {% if category == "admin" %}
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 labelq">Uploadby :</div>
+                  <div class="col-lg-9 col-md-8">{{data.uploadby}}</div>
+                </div>
+                {% endif %}
+
+
+                  <div class="update_icon d-flex gap-4">
+                    
+                    <a class="update btn btn-primary text-white" href="{% url 'AdminPanelContactEdit' data.id %}"> Update</a>
+                  </div>
+                {% endfor %}
+                
+                
+            </div>
+            </div>
+              <div class="tab-pane fade social_media_edit pt-3" id="social_media_edit">
+
+                
+            <div class="profile_details_div d-flex flex flex-column gap-4">
+              
+              <div class="title-div d-flex justify-content-between py-3 mx-4">
+                <h5 class="card-title text-capitalize fw-bold ">Social Media</h5>
+                <div class="update_icon d-flex gap-4">
+                  
+                  <a class="update btn btn-primary  text-white" href="/AdminPanelSocialAdd/"> Add New</a>
+                </div>
+              </div>
+              {% for data in social %}
+              <div class="row ">
+                <div class="col-lg-3 col-md-4 label ">Facebook :</div>
+                <div class="col-lg-9 col-md-8"><a href="{{data.facebook}}">{{data.facebook}}</a></div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">twitter :</div>
+                <div class="col-lg-9 col-md-8"><a href="{{data.twitter}}">{{data.twitter}}</a></div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Linkedin :</div>
+                <div class="col-lg-9 col-md-8"><a href="{{data.linkedin}}">{{data.linkedin}}</a></div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 labelq">Uploadby :</div>
+                <div class="col-lg-9 col-md-8">{{data.uploadby}}</div>
+              </div>
+              
+
+                <div class="update_icon d-flex gap-4">
+                    
+                  <a class="update btn btn-primary text-white" href="{% url 'AdminPanelSocialEdit' data.id %}"> Update</a>
+                </div>
+              {% endfor %}
+              
+              
+          </div>
+              </div>
+
+            </div><!-- End Bordered Tabs -->
+
+          </div>
+        </div>
+  </section>
+</div>
+{% endblock %}

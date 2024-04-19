@@ -1,0 +1,218 @@
+{% extends "adminbase.html" %}
+{% block content %}
+
+<div id="costum_home_div"  class="d-flex m-auto flex-column w-75 mx-auto mt-3 ">
+
+
+  <section class="section ">
+   
+    <div class="row">
+
+        <div class="card">
+          <div class="card-body pt-3">
+            <!-- Bordered Tabs -->
+            <ul class="nav nav-tabs nav-tabs-bordered">
+       
+          
+
+        
+              <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#vision_mission_overview">Vision And Mission</button>
+              </li>
+
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#principle_message_overview">Principle Message</button>
+              </li>
+
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#ssss_histroy_overview">SSSS History</button>
+              </li>
+
+            </ul>
+            <div class="tab-content pt-2">
+           
+              <div class="tab-pane fade show active vision_mission_overview " id="vision_mission_overview">
+               <div class="profile_details_div d-flex flex flex-column gap-4">
+                  
+
+              <div class="title-div d-flex justify-content-between">
+                <h5 class="card-title">Vision Mission</h5>
+                <div class="update_icon d-flex gap-4">
+                  
+                 
+                  
+                  <a class="update btn btn-primary  text-white" href="/AdminPanelAboutVisionAdd/"> Add New</a>
+                </div>
+              </div>
+              {% for data in vision %}
+            <div class="data-container w-100 scroll_y100">
+               
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label text-capitalize ">First Paragraph :</div>
+                  <div class="col-lg-9 col-md-8">{{data.firstpara}}</div>
+                </div>
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label text-capitalize ">Second Paragraph :</div>
+                  <div class="col-lg-9 col-md-8">{{data.secondpara}}</div>
+                </div>
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label text-capitalize ">third Paragraph :</div>
+                  <div class="col-lg-9 col-md-8">{{data.thirdpara}}</div>
+                </div>
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label text-capitalize ">fourth Paragraph :</div>
+                  <div class="col-lg-9 col-md-8">{{data.fourthpara}}</div>
+                </div>
+                {% if category ==  "admin" %}
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label text-capitalize ">uploadby :</div>
+                  <div class="col-lg-9 col-md-8">{{data.uploadby}}</div>
+                </div>
+                {% endif %}
+                
+
+
+                <div class="update_icon d-flex gap-4">
+                    
+                  <a class="update btn btn-primary text-white" href="{% url 'AdminPanelAboutVision' data.auto_increment_id %}"> Update</a>
+                </div>
+              </div>
+
+
+                {% endfor %}
+                
+              </div>
+            </div>
+              <div class="tab-pane fade principle_message_overview pt-3" id="principle_message_overview">
+
+                <div class="principle_message_div d-flex  flex-column gap-4">
+                  
+                <div class="title-div d-flex justify-content-between">
+                  <h5 class="card-title">Principle Message</h5>
+                  <div class="update_icon d-flex gap-4">
+                    
+                    
+                    <a class="update btn btn-primary  text-white" href="/AdminPanelAboutPrincipleAdd/"> Add New</a>
+                  </div>
+                </div>
+                {% for data in principle %}
+
+                <div class="data-container w-100 scroll_y100">
+
+                <div class="principle_info d-flex flex-column gap-4">
+               
+                  <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 label text-capitalize ">Image :</div>
+
+                    <a class="col-lg-9 col-md-8" href="{{MEDIA_URL}}{{data.img.url}}"><img src="{{MEDIA_URL}}{{data.img.url}}" alt="Principle photo" style=" width:200px !important ;height: fit-content !important;"></a>
+                    
+                  </div>
+                  <div class="row ">
+                    <div class="col-lg-3 col-md-4 label text-capitalize ">Name :</div>
+                    <div class="col-lg-9 col-md-8">{{data.title}}</div>
+                  </div>
+                  <div class="row ">
+                    <div class="col-lg-3 col-md-4 label text-capitalize ">Principle Intro :</div>
+                    <div class="col-lg-9 col-md-8">{{data.principleintro}}</div>
+                  </div>
+                </div>
+                <div class="message w-100 d-flex flex-column gap-4">
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label text-capitalize ">First Paragraph :</div>
+                  <div class="col-lg-9 col-md-8">{{data.firstpara}}</div>
+                </div>
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label text-capitalize ">Second Paragraph :</div>
+                  <div class="col-lg-9 col-md-8">{{data.secondpara}}</div>
+                </div>
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label text-capitalize ">third Paragraph :</div>
+                  <div class="col-lg-9 col-md-8">{{data.thirdpara}}</div>
+                </div>
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label text-capitalize ">fourth Paragraph :</div>
+                  <div class="col-lg-9 col-md-8">{{data.fourthpara}}</div>
+                </div>
+
+                {% if category == "admin" %}
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label text-capitalize ">uploadby :</div>
+                  <div class="col-lg-9 col-md-8">{{data.uploadby}}</div>
+                </div>
+                {% endif %}
+                <div class="update_icon d-flex gap-4">
+                  
+                  <a class="update btn btn-primary text-white" href="{% url 'AdminPanelAboutPrinciple' data.auto_increment_id %}"> Update</a>
+                </div>
+                
+              </div>
+              </div>
+
+               
+
+                
+                {% endfor %}
+                
+              </div>
+              </div>
+
+              <div class="tab-pane fade pt-3" id="ssss_histroy_overview">
+                <div class="histroy_div d-flex flex flex-column gap-4">
+                
+                <div class="title-div d-flex justify-content-between">
+                  <h5 class="card-title text-capitalize">SSSS history</h5>
+                  <div class="update_icon d-flex gap-4">
+                    
+                    
+                    
+                    <a class="update btn btn-primary  text-white" href="/AdminPanelAboutHistoryAdd/"> Add New</a>
+                  </div>
+                </div> 
+                 {% for data in history %}
+                <div class="data-container w-100 scroll_y100">
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label text-capitalize ">First Paragraph :</div>
+                  <div class="col-lg-9 col-md-8">{{data.firstpara}}</div>
+                </div>
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label text-capitalize ">Second Paragraph :</div>
+                  <div class="col-lg-9 col-md-8">{{data.secondpara}}</div>
+                </div>
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label text-capitalize ">third Paragraph :</div>
+                  <div class="col-lg-9 col-md-8">{{data.thirdpara}}</div>
+                </div>
+                <div class="row ">
+                  <div class="col-lg-3 col-md-4 label text-capitalize ">fourth Paragraph :</div>
+                  <div class="col-lg-9 col-md-8">{{data.fourthpara}}</div>
+                  {% if category == "admin" %}
+                  <div class="row ">
+                    <div class="col-lg-3 col-md-4 label text-capitalize ">uploadby :</div>
+                    <div class="col-lg-9 col-md-8">{{data.uploadby}}</div>
+                  </div>
+                  {% endif %}
+                  <div class="update_icon d-flex gap-4">
+                    
+                    <a class="update btn btn-primary text-white" href="{% url 'AdminPanelAboutHistory' data.auto_increment_id %}"> Update</a>
+                  </div>
+                </div>
+                </div>
+
+                
+                {% endfor %}
+                
+              </div>
+              </div>
+
+            </div><!-- End Bordered Tabs -->
+
+          </div>
+        </div>
+
+      
+    </div>
+  </section>
+
+
+</div>
+{% endblock %}

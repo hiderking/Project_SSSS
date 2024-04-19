@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<main class="container-fluid" id="about_main">
+  <div class="heading_buttons mt-1 d-flex flex-column">
+    <a  class=" heading_buttons_a h4 rounded bg-primary text-decoration-none fw-bold d-flex align-items-center text-capitalize " href="#">About us</a>
+    
+    
+  </div>
+
+
+
+
+<!-- about_main_history start  -->
+<div id="about_main_history" class="about_main_second_buttons">
+
+  <div class="about_heading d-flex justify-content-center my-2">
+   <a class="about_heading_header h3 rounded text-center  fw-bold  normal1-hover-effect text-decoration-none" href="#">History 0f SSSS</a>
+  </div>
+
+{% for data in history %}
+  <div id="home_vision_history" class=" col-12">
+   <p class="home_vision_para normal1-hover-effect para_font_size font_text_indent">
+     {{data.firstpara}}</p>
+   <p class="home_vision_para normal1-hover-effect  para_font_size ">
+    {{data.secondpara}}
+   </p>
+   <p class="home_vision_para normal1-hover-effect para_font_size ">
+    {{data.thirdpara}} </p>
+   <!-- <p class="home_vision_para normal1-hover-effect para_font_size ">
+   {{data.forthpara}}
+   </p> -->
+  
+   <!-- about_main_history start  -->
+ </div>
+  {% endfor %}
+ 
+</div>
+</main>
+ {% endblock %}

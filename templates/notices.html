@@ -1,0 +1,156 @@
+
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+ <main id="notice_main">
+
+<div id="main_notice">
+
+<!-- recent notices start  -->
+<div id="recent_notices" class="mt-4">
+
+  <div id="heading_buttons" class="mt-1">
+       
+  <a  class="heading_buttons_a heading_buttons h4 rounded bg-primary text-decoration-none fw-bold d-flex align-items-center text-capitalize" href="/notices/">notices board</a>
+</div>
+
+  <div class="table ">
+     <table id="table" class="table p-3 border w-75 m-auto">
+      <thead class="thead-dark">
+        <tr>
+          <th class="  col col-md-9" scope=" col-9"  class="text-capitalize align-top ">Notice Title</th>
+          <th class="  col col-md-2" scope=" col-2" class="text-capitalize align-top">Upload Date</th>
+        </tr>
+      </thead>
+      <tbody>
+   
+        {% for data in notice %}
+        <tr>
+          <td class=" col col-md-9" scope="col-9" ><a class="text-decoration-none text-black blue-hover fw-bold" href="{% url 'Notice_Open' data.id %}">{{data.title}}</a></td>
+          <td class=" col col-md-2" scope="col-2">{{data.updateDate.date}}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    
+  </div>
+</div>
+<!-- recent notices end  -->
+<div id="pagination_notice">
+
+  <ul class="pagination justify-content-center">
+{% if notice.has_previous %}
+<li class="page-item"><a class="page-link bg-primary text-white" href="?page_no={{ notice.previous_page_number }}">Prev</a></li>
+
+{% if notice.number > 3 %}
+    <li class="page-item"><a class="page-link bg-primary text-white" href="?page_no=1">1</a></li>
+  {% if notice.number > 4 %}
+    <li class="page-item"><a class="page-link bg-primary text-white" >...</a></li>
+  {% endif %}
+{% endif %}
+{% endif %}
+
+{% for num in notice.paginator.page_range %}
+{% if notice.number == num %}
+    <li class="page-item"><a class="page-link bg-primary text-white" href="?page_no={{ num }}">{{ num }}</a></li>
+{% elif num > notice.number|add:'-3' and num < notice.number|add:'3' %}
+    <li class="page-item"><a class="page-link bg-primary text-white" href="?page_no={{ num }}">{{ num }}</a></li>
+{% endif %}
+{% endfor %}
+
+{% if notice.has_next %}
+{% if notice.number < notice.paginator.num_pages|add:'-3' %}
+  <li class="page-item"><a class="page-link bg-primary text-white" >...</a></li>
+  <li class="page-item"><a class="page-link bg-primary text-white" href="?page_no={{ notice.paginator.num_pages }}">
+    {{ notice.paginator.num_pages }}
+  </a></li>
+{% elif notice.number < notice.paginator.num_pages|add:'-2' %}
+  <li class="page-item"><a class="page-link bg-primary text-white" href="?page_no={{ notice.paginator.num_pages }}">
+    {{ notice.paginator.num_pages }}
+  </a></li>
+{% endif %}
+
+<li class="page-item"><a class="page-link bg-primary text-white" href="?page_no={{ notice.next_page_number }}">Next</a></li>
+{% endif %}
+</ul>
+</div>
+
+
+</div>
+
+<div id="news">
+
+<!-- recent news start  -->
+<div id="recent_news" class="mt-4">
+
+  <div id="heading_buttons" class="mt-1">
+       
+  <a  class="heading_buttons_a h4 rounded bg-primary text-decoration-none fw-bold d-flex align-items-center text-capitalize" href="/notices/">News</a>
+</div>
+
+  <div class="table  ">
+     <table id="table" class="table border p-3 w-75 m-auto">
+      <thead class="thead-dark">
+        <tr>
+          <th class="col col-md-9" scope="col"  class="text-capitalize align-top">News Title</th>
+          <th class=" col col-md-2" scope="col " class="text-capitalize align-top">Upload Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for data in news %}
+        <tr class="tr">
+          <td class=" col col-md-9"><a class="text-decoration-none text-black blue-hover fw-bold" href="{{data.link}}">{{data.title}}</a></td>
+          <td class=" col col-md-2" scope="row">{{data.updateDate.date}}</td>
+        </tr>
+        {% endfor  %}
+      </tbody>
+    </table>
+    
+  </div>
+</div>
+<!-- recent news end   -->
+
+ 
+  <div id="pagination_news">
+
+    <ul class="pagination justify-content-center">
+{% if news.has_previous %}
+  <li class="page-item"><a class="page-link bg-primary text-white" href="?page={{ news.previous_page_number }}">Prev</a></li>
+
+  {% if news.number > 3 %}
+      <li class="page-item"><a class="page-link bg-primary text-white" href="?page=1">1</a></li>
+    {% if news.number > 4 %}
+      <li class="page-item"><a class="page-link bg-primary text-white" >...</a></li>
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% for num in news.paginator.page_range %}
+  {% if news.number == num %}
+      <li class="page-item"><a class="page-link bg-primary text-white" href="?page={{ num }}">{{ num }}</a></li>
+  {% elif num > news.number|add:'-3' and num < news.number|add:'3' %}
+      <li class="page-item"><a class="page-link bg-primary text-white" href="?page={{ num }}">{{ num }}</a></li>
+  {% endif %}
+{% endfor %}
+
+{% if news.has_next %}
+  {% if news.number < news.paginator.num_pages|add:'-3' %}
+    <li class="page-item"><a class="page-link bg-primary text-white" >...</a></li>
+    <li class="page-item"><a class="page-link bg-primary text-white" href="?page={{ news.paginator.num_pages }}">
+      {{ news.paginator.num_pages }}
+    </a></li>
+  {% elif news.number < news.paginator.num_pages|add:'-2' %}
+    <li class="page-item"><a class="page-link bg-primary text-white" href="?page={{ news.paginator.num_pages }}">
+      {{ news.paginator.num_pages }}
+    </a></li>
+  {% endif %}
+
+  <li class="page-item"><a class="page-link bg-primary text-white" href="?page={{ news.next_page_number }}">Next</a></li>
+{% endif %}
+</ul>
+</div>
+</div>
+<!-- notice main end  -->
+
+</main>
+{% endblock %}

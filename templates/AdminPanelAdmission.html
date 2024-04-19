@@ -1,0 +1,46 @@
+{% extends "adminbase.html" %}
+{% block content %}
+{% load static %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 border">
+
+
+    <form id="costum_home_form">
+      {% csrf_token %}
+        
+      <div class="select_table">
+      
+        <table id="table" class="table">
+            <thead>
+              <tr>
+                <th class="text-capitalize text-center col-1" scope="col ">Id</th>
+                <th class="text-capitalize text-center col-2" scope="col ">Photo</th>
+                <th class="text-capitalize text-center col-2" scope="col">Name</th>
+                <th class="text-capitalize text-center col-2" scope="col ">Parents name</th>
+                <th class="text-capitalize text-center col-2" scope="col ">Address</th>
+                <th class="text-capitalize text-center col-1" scope="col">Program</th>
+                <th class="text-capitalize text-center col-1" scope="col ">Grade</th>
+                <th class="text-capitalize text-center col-1" scope="col ">R-date</th>
+              </tr>
+            </thead>
+
+            <tbody id="tbody">
+              <tr id="apa_tr" class="apa_tr border">
+                <td class="col-1 text-capitalize d-flex"><a id="student_id" href="#" class="text-decoration-none ">#123</a></td>
+                <td class="col-2 text-capitalize  "><img class="student_photo m-auto d-flex justify-content-center" src="{% static 'assets/img/pngtree-school-logo-png-image_3977360.png' %} " alt="photo" width="100px"></td>
+                <td class="col-2 text-capitalize    "><p class="student_name">Deepak Bohara chhetri</p></td>
+                <td class="col-2 text-capitalize   "><p class="student_parents_name">Dhan Bahadur Bohara Chhetri</p></td>
+                <td class="col-2 text-capitalize   "><p class="student_parmanent_address">Rapti Ghaupalika , 5 , pipari , dang</p></td>
+                <td  class="col-1 text-capitalize   "><p class="student_program">Management</p></td>
+                <td class="col-1 text-capitalize   "><p class="grade">12</p></td>
+                <td class="col-1 text-capitalize   "><p class="student_registration_date">2023/4/4</p></td>
+
+              </tr>
+  
+            </tbody>
+            
+          </table>
+
+    </div>
+    </form>
+</div>
+{% endblock %}

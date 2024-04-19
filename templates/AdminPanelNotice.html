@@ -1,0 +1,79 @@
+{% extends "adminbase.html" %}
+{% block content %}
+{% load static %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 border">
+
+
+  <form id="costum_home_form" method="POST" enctype="multipart/form-data" class="scroll_y100 me-4 pb-4">
+    {% csrf_token %}
+    <div class=" w-75 d-flex flex-column gap-3 mr-1 mb-3 py-2 rounded px-3 border-bottom">
+      <h5 class="text-capitalize  text-opacity7 text-decoration-underline fw-bold ">Add notices</h5>
+
+        <div class="px-2">
+        <label class="padding_2_left text-capitalize" for="notice_files_title">Title :</label>
+        <input class="panel_input border w-100 mt-2" type="text" name="notice_files_title" id="notice_files_title" placeholder="Title" value="{{form.title}}" required>
+       </div>
+
+       
+       <div class="px-2 mt-3">
+        <label class="padding_2_left text-capitalize text-kana" for="p-first-para">Description : </label>
+      <textarea class="textarea1 border mt-2 w-100" name="notice_files_description" id="p-first-para" cols="30" rows="10" placeholder="Enter first paragraph" required>
+        {{form.description}}
+      </textarea>
+       </div>
+
+     
+ 
+
+     <div class="px-2">
+      <label  class="padding_2_left text-kana" for="notice_img">Select Image : </label>
+      <div id="view_notice_img" class="d-flex flex-column">
+      <a href="{{MEDIA_URL}}{{form.img.url}}"><img id="img1" class="imigi" src="{{MEDIA_URL}}{{form.img.url}}" alt=""width="100px"></a>
+     <input  class="accept_files w-100 mt-2 text-pr" type="file" name="notice_img" id="notice_img"  required >
+   </div>
+   
+    </div>
+    
+    <div class="px-2">
+      <label class="padding_2_left text-capitalize" for="notice_file_title1">First file title  :</label>
+      <input class="panel_input border w-100 mt-2" type="text" name="notice_file_title1" id="notice_file_title1" placeholder="Title of file 1" value="{{form.title2}}" >
+     </div>
+    
+   
+      <div class="px-2">
+        <label  class="padding_2_left text-kana" for="link_showing">Select File : </label>
+        <div id="view_notice_file_div" class="d-flex flex-column">
+       <input class="notice_files w-100 mt-2 text-pr " type="file" name="notice_file1" id="link_showing" value="{{form.file2}}" >
+     </div>
+
+     
+     <div class="px-2">
+      <label class="padding_2_left text-capitalize" for="notice_file_title2">Second file title  :</label>
+      <input class="panel_input border w-100 mt-2" type="text" name="notice_file_title2" id="notice_file_title2" placeholder="Title of file 2" value="{{form.title3}}" >
+     </div>
+    
+   </div>
+      <div class="px-2">
+        <label  class="padding_2_left text-kana" for="link_showing">Select Second File : </label>
+        <div id="view_notice_file_div" class="d-flex flex-column">
+       <input  class="notice_files w-100 mt-2 text-pr " type="file" name="notice_file2" id="link_showing"  value="{{form.file3}}">
+     </div>
+     
+  
+    
+   </div>
+
+
+  
+     
+         
+       
+      
+       <div class="px-2 d-flex justify-content-end">
+        <input id="submit1" class="bg-primary py-1 px-3 text-white normal1-hover-effect rounded border" type="submit" value="Add Submit">
+       </div>
+    </div>
+    
+</form>
+</div>
+{% endblock  %}

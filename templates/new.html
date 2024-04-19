@@ -1,0 +1,160 @@
+{% extends "adminbase.html" %}
+{% block content %}
+{% load static %}
+<div id="costum_home_div"  class="d-flex flex-column w-100 mx-3 mt-3 border">
+
+
+  <section class="section profile">
+
+    <div class="">
+
+      <div class="col-xl-8">
+
+        <div class="card">
+          <div class="card-body pt-3">
+            <!-- Bordered Tabs -->
+            <ul class="nav nav-tabs nav-tabs-bordered">
+
+              <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Edit Profile</button>
+              </li>
+
+          
+
+            </ul>
+            <div class="tab-content pt-2">
+
+              <div class="tab-pane fade show active profile-overview " id="profile-overview">
+     <!-- Profile Edit Form -->
+     <form  method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      
+      {% if form.img == "" or form.img == None %}
+      <div class=" mb-3">
+        <div class="px-2">
+          <label  class="padding_2_left text-kana required_field" for="gallery_img">Select Image : </label>
+          <div id="view_gallery_img" class="d-flex flex-column">
+          <img id="img1" class="imigi" src="" alt="" width="200px">
+         <input  class="accept_files  mt-2 text-pr" type="file" name="gallery_img" id="gallery_img" accept="image/*" required  value="{{form.img}}" >
+       </div>
+       
+        </div>
+      </div>
+      {% else %}
+      <div class=" mb-3">
+        <div class="px-2">
+          <label  class="padding_2_left text-kana required_field" for="gallery_img">Select Image : </label>
+          <div id="view_gallery_img" class="d-flex flex-column">
+          <img id="img1" class="imigi" src="{{ MEDIA_URL }}{{ form.img.url}}" alt=""width="200px">
+         <input  class="required_field accept_files w-100 mt-2 text-pr" type="file" name="gallery_img" id="gallery_img" accept="image/*"   value="{{form.img}}" >
+       </div>
+        </div>
+      </div>
+      {% endif %}
+      <div class="name_div d-flex justify-content-between">
+      <div class=" mb-3">
+        <label for="fullName" class="required_field  col-form-label">First Name</label>
+          <input name="first_name" type="text" class="form-control" id="fullName" placeholder="Enter first name ?" value="{{form.first_name}}">
+       
+      </div>
+      <div class=" mb-3">
+        <label for="middleName" class=" col-form-label">Middle Name</label>
+        
+          <input name="middle_name" type="text" class="form-control" id="middleName" placeholder="" value="{{form.middle_name}}">
+    
+      </div>
+     
+      <div class=" mb-3">
+        <label for="last_name" class=" col-form-label required_field">Last Name</label>
+          <input name="last_name" type="text" class="form-control" id="LastName" placeholder="Enter last name ?"value="{{form.last_name}}">
+      </div>
+    </div>
+
+      <div class=" mb-3">
+        <label for="admin_post" class="form-label"> Select Post</label>
+        <select name="admin_post" id="admin_post"  class="form-select w-25 panel text-primary">
+          <option class="text-secondary" value="select">Select</option>
+          <option class="text-dark" value="Teacher">Teacher</option>
+          <option class="text-dark" value="Principle">Principle</option>
+          <option class="text-dark" value="Administrator">Administrator</option>
+        </select>
+          </div>
+     
+
+          <div class="name_div d-flex justify-content-between">
+            <div class=" mb-3">
+              <label for="fullName" class="required_field  col-form-label">Province</label>
+              <select name="admin_post" id="admin_post"  class="form-select  panel text-primary">
+                <option class="text-secondary" value="select">Select</option>
+                <option class="text-dark" value="province-1 ">province-1 </option>
+                <option class="text-dark" value="province-2">province-2</option>
+                <option class="text-dark" value="province-3">province-3</option>
+                <option class="text-dark" value="province-4">province-4</option>
+                <option class="text-dark" value="province-5">province-5</option>
+                <option class="text-dark" value="province-6">province-6</option>
+                <option class="text-dark" value="province-7">province-7</option>
+              </select>
+             
+            </div>
+            <div class=" mb-3">
+              <label for="middleName" class=" col-form-label">District</label>
+              <select name="admin_post" id="admin_post"  class="form-select  panel text-primary">
+                <option class="text-secondary" value="select">Select</option>
+                <option class="text-dark" value="Banke ">Banke </option>
+                <option class="text-dark" value="Arghakhanchi">Arghakhanchi</option>
+                <option class="text-dark" value="Dang">Dang</option>
+                <option class="text-dark" value="Pythan">Pythan</option>
+                <option class="text-dark" value="Chitwan">Chitwan</option>
+                <option class="text-dark" value="Kathmandu">Kathmandu</option>
+                <option class="text-dark" value="Pokhara">Pokhara</option>
+              </select>
+          
+            </div>
+           
+            <div class=" mb-3">
+              <label for="last_name" class=" col-form-label required_field">Municipality/Ghaupalika</label>
+                <input name="last_name" type="text" class="form-control" id="LastName" placeholder="Enter last name ?"value="{{form.last_name}}">
+            </div>
+          </div>
+
+
+      <div class=" mb-3">
+        <label for="Address" class=" col-form-label required_field">Address</label>
+        <div class="col-md-8 col-lg-9">
+          <input name="address" type="text" class="form-control " id="Address" placeholder="Enter your address ?" value="{{form.address}}">
+        </div>
+      </div>
+
+      <div class=" mb-3">
+        <label for="Phone" class=" col-form-label required_field">Phone</label>
+        <div class="col-md-8 col-lg-9">
+          <input name="phn_no" type="text" class="form-control " id="Phone" placeholder="Enter phone number ?" value="{{form.phn_no}}">
+        </div>
+      </div>
+
+      <div class=" mb-3">
+        <label for="Email" class=" col-form-label required_field">Email</label>
+        <div class="col-md-8 col-lg-9">
+          <input name="gmail" type="email" class="form-control " id="Email" placeholder="Enter your Email ?" value="{{form.gmail}}">
+        </div>
+      </div>
+
+
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+    </form><!-- End Profile Edit Form -->
+
+            </div>
+
+            </div><!-- End Bordered Tabs -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
